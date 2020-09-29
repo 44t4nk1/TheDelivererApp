@@ -11,8 +11,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         brightness: Brightness.light,
-        canvasColor: Color(0xff050505),
-        accentColor: Color(0xff004FFF),
+        canvasColor: Color(0xffffffff),
+        accentColor: Color(0xff0047ed),
+        textTheme: TextTheme(
+          bodyText1: TextStyle(
+            color: Color(0xff212121),
+          ),
+        ),
       ),
       home: LoginPage(),
     );
