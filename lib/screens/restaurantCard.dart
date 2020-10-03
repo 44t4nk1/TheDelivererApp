@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class FoodCard extends StatelessWidget {
+class RestaurantCard extends StatelessWidget {
   final String name;
-  final String description;
-  final String price;
+  final String address;
+  final String distance;
 
-  FoodCard({
+  RestaurantCard({
     @required this.name,
-    @required this.description,
-    @required this.price,
+    @required this.address,
+    @required this.distance,
   });
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class FoodCard extends StatelessWidget {
                 margin: EdgeInsets.only(
                     top: size.height * 0.5 / 100, left: size.width * 6 / 100),
                 child: Text(
-                  description,
+                  address,
                   style: GoogleFonts.montserrat(
                     color: Colors.white,
                     fontWeight: FontWeight.w400,
@@ -64,7 +64,7 @@ class FoodCard extends StatelessWidget {
             margin: EdgeInsets.only(
                 right: size.width * 6 / 100, top: size.height * 2 / 100),
             child: Text(
-              '₹' + price,
+              distance + 'KM',
               style: GoogleFonts.montserrat(
                 color: Colors.white,
                 fontWeight: FontWeight.w700,

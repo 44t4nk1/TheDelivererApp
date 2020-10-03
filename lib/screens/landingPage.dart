@@ -1,4 +1,5 @@
 import 'package:TheDeliverer/screens/foodCard.dart';
+import 'package:TheDeliverer/screens/restaurantCard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -37,7 +38,23 @@ class _LandingPageState extends State<LandingPage> {
       "price": "199",
     },
   ];
-  final List restaurants = [];
+  final List restaurants = [
+    {
+      "name": "Raj Mahal",
+      "address": "Raj Mahal, Akota Circle, Rajkot",
+      "distance": "1.3",
+    },
+    {
+      "name": "Surya Palace",
+      "address": "Gotri",
+      "distance": "7.2",
+    },
+    {
+      "name": "McDonald's",
+      "address": "Near FIITJEE, Sevasi",
+      "distance": "3.7",
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -108,135 +125,21 @@ class _LandingPageState extends State<LandingPage> {
                 child: ListView.builder(
                   shrinkWrap: false,
                   scrollDirection: Axis.horizontal,
-                  itemCount: specialOffers.length,
+                  itemCount: restaurants.length,
                   padding:
                       EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
                   itemBuilder: (context, index) {
                     return Container(
                       margin: EdgeInsets.only(right: size.width * 4 / 100),
-                      child: FoodCard(
-                        name: specialOffers[index]['name'],
-                        description: specialOffers[index]['description'],
-                        price: specialOffers[index]['price'],
+                      child: RestaurantCard(
+                        name: restaurants[index]['name'],
+                        address: restaurants[index]['address'],
+                        distance: restaurants[index]['distance'],
                       ),
                     );
                   },
                 ),
               ),
-              SizedBox(
-                height: size.height * 2 / 100,
-              ),
-              Container(
-                padding: EdgeInsets.only(left: size.width * 4 / 100),
-                child: Text(
-                  "Our best Offers!",
-                  style: GoogleFonts.montserrat(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w800,
-                    color: Theme.of(context).backgroundColor,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: size.height * 2 / 100,
-              ),
-              Container(
-                height: size.height * 20 / 100,
-                width: double.maxFinite,
-                child: ListView.builder(
-                  shrinkWrap: false,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: specialOffers.length,
-                  padding:
-                      EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.only(right: size.width * 4 / 100),
-                      child: FoodCard(
-                        name: specialOffers[index]['name'],
-                        description: specialOffers[index]['description'],
-                        price: specialOffers[index]['price'],
-                      ),
-                    );
-                  },
-                ),
-              ),
-              SizedBox(
-                height: size.height * 2 / 100,
-              ),
-              Container(
-                padding: EdgeInsets.only(left: size.width * 4 / 100),
-                child: Text(
-                  "Our best Offers!",
-                  style: GoogleFonts.montserrat(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w800,
-                    color: Theme.of(context).backgroundColor,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: size.height * 2 / 100,
-              ),
-              Container(
-                height: size.height * 20 / 100,
-                width: double.maxFinite,
-                child: ListView.builder(
-                  shrinkWrap: false,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: specialOffers.length,
-                  padding:
-                      EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.only(right: size.width * 4 / 100),
-                      child: FoodCard(
-                        name: specialOffers[index]['name'],
-                        description: specialOffers[index]['description'],
-                        price: specialOffers[index]['price'],
-                      ),
-                    );
-                  },
-                ),
-              ),
-              SizedBox(
-                height: size.height * 2 / 100,
-              ),
-              Container(
-                padding: EdgeInsets.only(left: size.width * 4 / 100),
-                child: Text(
-                  "Our best Offers!",
-                  style: GoogleFonts.montserrat(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w800,
-                    color: Theme.of(context).backgroundColor,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: size.height * 2 / 100,
-              ),
-              Container(
-                height: size.height * 20 / 100,
-                width: double.maxFinite,
-                child: ListView.builder(
-                  shrinkWrap: false,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: specialOffers.length,
-                  padding:
-                      EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.only(right: size.width * 4 / 100),
-                      child: FoodCard(
-                        name: specialOffers[index]['name'],
-                        description: specialOffers[index]['description'],
-                        price: specialOffers[index]['price'],
-                      ),
-                    );
-                  },
-                ),
-              )
             ],
           ),
         ),
