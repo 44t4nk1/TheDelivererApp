@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         canvasColor: Color(0xffffffff),
         accentColor: Color(0xff0047ed),
+        secondaryHeaderColor: Color(0xff595fff),
         backgroundColor: Color(0xff212121),
         textTheme: TextTheme(
           bodyText1: TextStyle(

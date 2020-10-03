@@ -1,5 +1,6 @@
 import 'package:TheDeliverer/screens/foodCard.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -39,82 +40,97 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Stack(
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: size.height * 4.5 / 100,
-            ),
-            Container(
-              padding: EdgeInsets.only(left: size.width * 4 / 100),
-              child: Text(
-                "Now Delivering to",
-                style: GoogleFonts.montserrat(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: Theme.of(context).backgroundColor,
-                ),
+    return SingleChildScrollView(
+      child: Stack(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: size.height * 4.5 / 100,
               ),
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  padding: EdgeInsets.only(left: size.width * 4 / 100),
-                  child: Text(
-                    "Rajkot, Gujarat",
-                    style: GoogleFonts.montserrat(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w800,
-                      color: Theme.of(context).accentColor,
-                    ),
+              Container(
+                padding: EdgeInsets.only(left: size.width * 4 / 100),
+                child: Text(
+                  "Now Delivering to",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    color: Theme.of(context).backgroundColor,
                   ),
                 ),
-                Spacer(),
-                Container(
-                  padding: EdgeInsets.only(right: size.width * 4 / 100),
-                  child: IconButton(
-                    icon: Icon(
-                      FontAwesomeIcons.shoppingBasket,
-                      size: 20,
-                      color: Theme.of(context).accentColor,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: size.width * 4 / 100),
+                    child: Text(
+                      "Rajkot, Gujarat",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w800,
+                        color: Theme.of(context).accentColor,
+                      ),
                     ),
-                    onPressed: () {},
+                  ),
+                  Spacer(),
+                  Container(
+                    padding: EdgeInsets.only(right: size.width * 4 / 100),
+                    child: IconButton(
+                      icon: Icon(
+                        FontAwesomeIcons.shoppingBasket,
+                        size: 20,
+                        color: Theme.of(context).accentColor,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                height: 0.3,
+                width: double.infinity,
+                color: Theme.of(context).backgroundColor,
+                margin: EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
+              ),
+              SizedBox(
+                height: size.height * 2 / 100,
+              ),
+              Container(
+                padding: EdgeInsets.only(left: size.width * 4 / 100),
+                child: Text(
+                  "Our best Offers!",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                    color: Theme.of(context).backgroundColor,
                   ),
                 ),
-              ],
-            ),
-            Container(
-              height: 0.3,
-              width: double.infinity,
-              color: Theme.of(context).backgroundColor,
-              margin: EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
-            ),
-            SizedBox(
-              height: size.height * 2 / 100,
-            ),
-            Container(
-              padding: EdgeInsets.only(left: size.width * 4 / 100),
-              child: Text(
-                "Our best Offers!",
-                style: GoogleFonts.montserrat(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w800,
-                  color: Theme.of(context).backgroundColor,
-                ),
               ),
-            ),
-            ListView.builder(
-              itemCount: specialOffers.length,
-              itemBuilder: (context, index) {
-                return FoodCard();
-              },
-            )
-          ],
-        ),
-      ],
+              Container(
+                height: size.height * 20 / 100,
+                width: double.maxFinite,
+                child: ListView.builder(
+                  shrinkWrap: false,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: specialOffers.length,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 10,
+                  ),
+                  itemBuilder: (context, index) {
+                    return FoodCard(
+                      name: specialOffers[index]['name'],
+                      description: specialOffers[index]['description'],
+                      price: specialOffers[index]['price'],
+                    );
+                  },
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
