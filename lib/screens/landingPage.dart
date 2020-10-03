@@ -37,13 +37,213 @@ class _LandingPageState extends State<LandingPage> {
       "price": "199",
     },
   ];
+  final List restaurants = [];
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      child: Stack(
-        children: [
-          Column(
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: size.height * 15.5 / 100,
+              ),
+              Container(
+                padding: EdgeInsets.only(left: size.width * 4 / 100),
+                child: Text(
+                  "Our best Offers!",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                    color: Theme.of(context).backgroundColor,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: size.height * 2 / 100,
+              ),
+              Container(
+                height: size.height * 20 / 100,
+                width: double.maxFinite,
+                child: ListView.builder(
+                  shrinkWrap: false,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: specialOffers.length,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.only(right: size.width * 4 / 100),
+                      child: FoodCard(
+                        name: specialOffers[index]['name'],
+                        description: specialOffers[index]['description'],
+                        price: specialOffers[index]['price'],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(
+                height: size.height * 2 / 100,
+              ),
+              Container(
+                padding: EdgeInsets.only(left: size.width * 4 / 100),
+                child: Text(
+                  "Our favourite Restaurants!",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                    color: Theme.of(context).backgroundColor,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: size.height * 2 / 100,
+              ),
+              Container(
+                height: size.height * 20 / 100,
+                width: double.maxFinite,
+                child: ListView.builder(
+                  shrinkWrap: false,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: specialOffers.length,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.only(right: size.width * 4 / 100),
+                      child: FoodCard(
+                        name: specialOffers[index]['name'],
+                        description: specialOffers[index]['description'],
+                        price: specialOffers[index]['price'],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(
+                height: size.height * 2 / 100,
+              ),
+              Container(
+                padding: EdgeInsets.only(left: size.width * 4 / 100),
+                child: Text(
+                  "Our best Offers!",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                    color: Theme.of(context).backgroundColor,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: size.height * 2 / 100,
+              ),
+              Container(
+                height: size.height * 20 / 100,
+                width: double.maxFinite,
+                child: ListView.builder(
+                  shrinkWrap: false,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: specialOffers.length,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.only(right: size.width * 4 / 100),
+                      child: FoodCard(
+                        name: specialOffers[index]['name'],
+                        description: specialOffers[index]['description'],
+                        price: specialOffers[index]['price'],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(
+                height: size.height * 2 / 100,
+              ),
+              Container(
+                padding: EdgeInsets.only(left: size.width * 4 / 100),
+                child: Text(
+                  "Our best Offers!",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                    color: Theme.of(context).backgroundColor,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: size.height * 2 / 100,
+              ),
+              Container(
+                height: size.height * 20 / 100,
+                width: double.maxFinite,
+                child: ListView.builder(
+                  shrinkWrap: false,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: specialOffers.length,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.only(right: size.width * 4 / 100),
+                      child: FoodCard(
+                        name: specialOffers[index]['name'],
+                        description: specialOffers[index]['description'],
+                        price: specialOffers[index]['price'],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(
+                height: size.height * 2 / 100,
+              ),
+              Container(
+                padding: EdgeInsets.only(left: size.width * 4 / 100),
+                child: Text(
+                  "Our best Offers!",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                    color: Theme.of(context).backgroundColor,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: size.height * 2 / 100,
+              ),
+              Container(
+                height: size.height * 20 / 100,
+                width: double.maxFinite,
+                child: ListView.builder(
+                  shrinkWrap: false,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: specialOffers.length,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.only(right: size.width * 4 / 100),
+                      child: FoodCard(
+                        name: specialOffers[index]['name'],
+                        description: specialOffers[index]['description'],
+                        price: specialOffers[index]['price'],
+                      ),
+                    );
+                  },
+                ),
+              )
+            ],
+          ),
+        ),
+        Container(
+          color: Colors.white,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
@@ -94,43 +294,10 @@ class _LandingPageState extends State<LandingPage> {
                 color: Theme.of(context).backgroundColor,
                 margin: EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
               ),
-              SizedBox(
-                height: size.height * 2 / 100,
-              ),
-              Container(
-                padding: EdgeInsets.only(left: size.width * 4 / 100),
-                child: Text(
-                  "Our best Offers!",
-                  style: GoogleFonts.montserrat(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w800,
-                    color: Theme.of(context).backgroundColor,
-                  ),
-                ),
-              ),
-              Container(
-                height: size.height * 20 / 100,
-                width: double.maxFinite,
-                child: ListView.builder(
-                  shrinkWrap: false,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: specialOffers.length,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                  ),
-                  itemBuilder: (context, index) {
-                    return FoodCard(
-                      name: specialOffers[index]['name'],
-                      description: specialOffers[index]['description'],
-                      price: specialOffers[index]['price'],
-                    );
-                  },
-                ),
-              )
             ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
