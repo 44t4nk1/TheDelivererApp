@@ -17,7 +17,47 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Column(
             children: [
               SizedBox(
-                height: size.height * 18 / 100,
+                height: size.height * 15 / 100,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: size.width * 4 / 100),
+                    child: Icon(
+                      FontAwesomeIcons.solidEnvelope,
+                      color: Theme.of(context).accentColor,
+                    ),
+                  ),
+                  Flexible(
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        left: size.width * 4 / 100,
+                        right: size.width * 4 / 100,
+                      ),
+                      child: Text(
+                        "siddharthsingh3700@gmail.com",
+                        style: GoogleFonts.montserrat(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                          color: Theme.of(context).backgroundColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: size.height * 1.5 / 100,
+              ),
+              Container(
+                height: 0.3,
+                width: double.infinity,
+                color: Theme.of(context).backgroundColor,
+                margin: EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
+              ),
+              SizedBox(
+                height: size.height * 1.5 / 100,
               ),
               Row(
                 children: [
@@ -34,8 +74,48 @@ class _ProfilePageState extends State<ProfilePage> {
                       "+91 9909666900",
                       style: GoogleFonts.montserrat(
                         fontSize: 18,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w400,
                         color: Theme.of(context).backgroundColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: size.height * 1.5 / 100,
+              ),
+              Container(
+                height: 0.3,
+                width: double.infinity,
+                color: Theme.of(context).backgroundColor,
+                margin: EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
+              ),
+              SizedBox(
+                height: size.height * 1.5 / 100,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: size.width * 4 / 100),
+                    child: Icon(
+                      FontAwesomeIcons.home,
+                      color: Theme.of(context).accentColor,
+                    ),
+                  ),
+                  Flexible(
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        left: size.width * 4 / 100,
+                        right: size.width * 4 / 100,
+                      ),
+                      child: Text(
+                        "B-303, Kabir Astoria, Near Gayatri Party Plot, Gotri, Vadodara, Gujarat",
+                        style: GoogleFonts.montserrat(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                          color: Theme.of(context).backgroundColor,
+                        ),
                       ),
                     ),
                   ),
@@ -45,35 +125,24 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ),
         Container(
-          color: Colors.white,
+          color: Theme.of(context).accentColor,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: size.height * 5.5 / 100,
-              ),
-              Container(
-                padding: EdgeInsets.only(left: size.width * 4 / 100),
-                child: Text(
-                  "Hello, Siddharth",
-                  style: GoogleFonts.montserrat(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w800,
-                    color: Theme.of(context).accentColor,
-                  ),
-                ),
+                height: size.height * 4.5 / 100,
               ),
               Row(
                 children: [
                   Container(
                     padding: EdgeInsets.only(left: size.width * 4 / 100),
                     child: Text(
-                      "siddharthsingh3700@gmail.com",
+                      "Hello, Siddharth",
                       style: GoogleFonts.montserrat(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                        color: Theme.of(context).backgroundColor,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -81,11 +150,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   Container(
                     padding: EdgeInsets.only(right: size.width * 4 / 100),
                     child: IconButton(
-                      icon: Icon(
-                        FontAwesomeIcons.pencilAlt,
-                        size: 20,
-                        color: Theme.of(context).accentColor,
-                      ),
+                      icon: Icon(FontAwesomeIcons.pencilAlt,
+                          size: 20, color: Colors.white),
                       onPressed: () {},
                     ),
                   ),
