@@ -1,4 +1,5 @@
 import 'package:TheDeliverer/screens/landingPage.dart';
+import 'package:TheDeliverer/screens/profilePage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,9 +16,7 @@ class _HomePageState extends State<HomePage> {
     Center(
       child: Text("Search"),
     ),
-    Center(
-      child: Text("Profile"),
-    ),
+    ProfilePage(),
   ];
   @override
   Widget build(BuildContext context) {
