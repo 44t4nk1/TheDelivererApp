@@ -14,7 +14,7 @@ class _ProfilePageState extends State<ProfilePage> {
   final maxLines = 5;
   String address = '';
   List<String> addresses = [
-    'B-303, Kabir Astoria, Near Gayatri Party Plot, Gotri, Vadodara, Gujarat, 390001',
+    'B-303, Kabir Astoria, Near Gayatri Party Plot, Gotri, Vadodara, Gujarat, 390001, India',
   ];
   @override
   Widget build(BuildContext context) {
