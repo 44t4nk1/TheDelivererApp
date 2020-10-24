@@ -23,6 +23,7 @@ class _ProfilePageState extends State<ProfilePage> {
       children: [
         SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: size.height * 15 / 100,
@@ -219,6 +220,20 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Theme.of(context).accentColor,
                       ),
                     ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: size.height * 3 / 100,
+              ),
+              Container(
+                padding: EdgeInsets.only(left: size.width * 4 / 100),
+                child: Text(
+                  "Order History",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800,
+                    color: Colors.black,
                   ),
                 ),
               ),

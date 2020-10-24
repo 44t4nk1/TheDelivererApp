@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: FaIcon(
-              FontAwesomeIcons.user,
+              FontAwesomeIcons.userAlt,
             ),
             label: "Profile",
           ),
