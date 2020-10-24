@@ -1,3 +1,5 @@
+import 'package:TheDeliverer/animations/BounceIn.dart';
+import 'package:TheDeliverer/screens/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,7 +36,16 @@ class _EditProfileState extends State<EditProfile> {
                       FontAwesomeIcons.arrowLeft,
                       color: Theme.of(context).accentColor,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        BounceIn(
+                          widget: HomePage(
+                            currentIndex: 2,
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ),
                 SizedBox(
@@ -45,7 +56,7 @@ class _EditProfileState extends State<EditProfile> {
                   alignment: Alignment.centerLeft,
                   padding: EdgeInsets.only(left: size.width * 8 / 100),
                   child: Text(
-                    "Sign Up",
+                    "Edit Profile",
                     style: GoogleFonts.montserrat(
                       fontSize: size.height * 5 / 100,
                       fontWeight: FontWeight.w400,
@@ -75,6 +86,7 @@ class _EditProfileState extends State<EditProfile> {
                     ),
                   ),
                   child: TextFormField(
+                    initialValue: "Siddharth",
                     cursorColor: Theme.of(context).accentColor,
                     decoration: InputDecoration(
                       prefixIcon: Icon(
@@ -117,6 +129,7 @@ class _EditProfileState extends State<EditProfile> {
                     ),
                   ),
                   child: TextFormField(
+                    initialValue: "siddharthsingh3700@gmail.com",
                     cursorColor: Theme.of(context).accentColor,
                     decoration: InputDecoration(
                       prefixIcon: Icon(
@@ -159,6 +172,7 @@ class _EditProfileState extends State<EditProfile> {
                     ),
                   ),
                   child: TextFormField(
+                    initialValue: "+91 9909666900",
                     cursorColor: Theme.of(context).accentColor,
                     decoration: InputDecoration(
                       prefixIcon: Icon(
@@ -180,17 +194,17 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
                 SizedBox(
-                  height: size.height * 7 / 100,
+                  height: size.height * 5 / 100,
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(
-                    horizontal: size.width * 25 / 100,
+                    horizontal: size.width * 15 / 100,
                   ),
                   height: size.height * 8 / 100,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(
-                      Radius.circular(20),
+                      Radius.circular(15),
                     ),
                     color: Theme.of(context).accentColor,
                   ),
@@ -202,7 +216,7 @@ class _EditProfileState extends State<EditProfile> {
                     splashColor: Theme.of(context).accentColor,
                     child: Center(
                       child: Text(
-                        "Sign Up",
+                        "Save Changes",
                         style: GoogleFonts.montserrat(
                           fontSize: size.height * 3 / 100,
                           fontWeight: FontWeight.w400,

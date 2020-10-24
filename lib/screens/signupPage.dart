@@ -271,7 +271,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       Navigator.push(
                         context,
                         BounceIn(
-                          widget: HomePage(),
+                          widget: HomePage(
+                            currentIndex: 0,
+                          ),
                         ),
                       );
                     },

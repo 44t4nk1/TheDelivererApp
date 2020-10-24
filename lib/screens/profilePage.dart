@@ -1,3 +1,5 @@
+import 'package:TheDeliverer/animations/BounceIn.dart';
+import 'package:TheDeliverer/screens/editProfilePage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -251,7 +253,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: IconButton(
                       icon: Icon(FontAwesomeIcons.pencilAlt,
                           size: 20, color: Colors.white),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          BounceIn(
+                            widget: EditProfile(),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ],

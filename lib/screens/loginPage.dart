@@ -165,7 +165,9 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.push(
                         context,
                         BounceIn(
-                          widget: HomePage(),
+                          widget: HomePage(
+                            currentIndex: 0,
+                          ),
                         ),
                       );
                     },

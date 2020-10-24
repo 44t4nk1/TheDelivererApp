@@ -5,12 +5,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
+  int currentIndex = 0;
   @override
   _HomePageState createState() => _HomePageState();
+  HomePage({@required this.currentIndex});
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentIndex = 0;
   final tabs = [
     LandingPage(),
     Center(
@@ -25,10 +26,10 @@ class _HomePageState extends State<HomePage> {
         type: BottomNavigationBarType.fixed,
         onTap: (index) {
           setState(() {
-            currentIndex = index;
+            widget.currentIndex = index;
           });
         },
-        currentIndex: currentIndex,
+        currentIndex: widget.currentIndex,
         showUnselectedLabels: false,
         selectedLabelStyle: GoogleFonts.montserrat(
           fontSize: 12,
@@ -57,7 +58,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: tabs[currentIndex],
+      body: tabs[widget.currentIndex],
     );
   }
 }
