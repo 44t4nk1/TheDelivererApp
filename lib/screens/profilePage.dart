@@ -8,6 +8,12 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  bool newAddress = false;
+  final maxLines = 5;
+  String address = '';
+  List<String> addresses = [
+    'B-303, Kabir Astoria, Near Gayatri Party Plot, Gotri, Vadodara, Gujarat',
+  ];
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -93,33 +99,126 @@ class _ProfilePageState extends State<ProfilePage> {
               SizedBox(
                 height: size.height * 1.5 / 100,
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(left: size.width * 4 / 100),
-                    child: Icon(
-                      FontAwesomeIcons.home,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  Flexible(
-                    child: Container(
-                      margin: EdgeInsets.only(
-                        left: size.width * 4 / 100,
-                        right: size.width * 4 / 100,
-                      ),
-                      child: Text(
-                        "B-303, Kabir Astoria, Near Gayatri Party Plot, Gotri, Vadodara, Gujarat",
-                        style: GoogleFonts.montserrat(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w400,
-                          color: Theme.of(context).backgroundColor,
+              for (var i in addresses)
+                Container(
+                  margin: EdgeInsets.only(bottom: size.height * 1 / 100),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: size.width * 4 / 100),
+                        child: Icon(
+                          FontAwesomeIcons.home,
+                          color: Theme.of(context).accentColor,
                         ),
                       ),
+                      Flexible(
+                        child: Container(
+                          margin: EdgeInsets.only(
+                            left: size.width * 4 / 100,
+                            right: size.width * 4 / 100,
+                          ),
+                          child: Text(
+                            i,
+                            style: GoogleFonts.montserrat(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w400,
+                              color: Theme.of(context).backgroundColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              SizedBox(
+                height: size.height * 1.5 / 100,
+              ),
+              newAddress
+                  ? Container(
+                      margin: EdgeInsets.only(
+                        left: size.width * 8 / 100,
+                        right: size.width * 8 / 100,
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: size.width * 5 / 100,
+                        vertical: size.height * 0.8 / 100,
+                      ),
+                      width: double.infinity,
+                      height: size.height * maxLines * 3.5 / 100,
+                      decoration: BoxDecoration(
+                        border:
+                            Border.all(color: Theme.of(context).accentColor),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                      child: TextFormField(
+                        maxLines: maxLines,
+                        cursorColor: Theme.of(context).accentColor,
+                        onChanged: (value) {
+                          address = value;
+                        },
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                          errorBorder: InputBorder.none,
+                          disabledBorder: InputBorder.none,
+                          hintText: "Enter another address",
+                          hintStyle: GoogleFonts.montserrat(
+                            fontSize: size.height * 2 / 100,
+                            fontWeight: FontWeight.w300,
+                            textStyle: Theme.of(context).textTheme.bodyText1,
+                          ),
+                        ),
+                      ),
+                    )
+                  : Container(height: 0),
+              newAddress
+                  ? SizedBox(
+                      height: size.height * 1.5 / 100,
+                    )
+                  : Container(height: 0),
+              Container(
+                margin: EdgeInsets.symmetric(
+                  horizontal: size.width * 8 / 100,
+                ),
+                height: size.height * 6 / 100,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  border: Border.all(color: Theme.of(context).accentColor),
+                ),
+                padding: EdgeInsets.all(
+                  size.height * 1 / 100,
+                ),
+                child: FlatButton(
+                  onPressed: () {
+                    setState(() {
+                      newAddress = !newAddress;
+                      if (newAddress == false && address != '') {
+                        setState(() {
+                          addresses.add(address);
+                          address = '';
+                        });
+                      }
+                    });
+                  },
+                  splashColor: Theme.of(context).canvasColor,
+                  child: Center(
+                    child: Text(
+                      newAddress ? "Add" : "+ Address",
+                      style: GoogleFonts.montserrat(
+                        fontSize: size.height * 3 / 100,
+                        fontWeight: FontWeight.w400,
+                        color: Theme.of(context).accentColor,
+                      ),
                     ),
                   ),
-                ],
+                ),
               ),
             ],
           ),
