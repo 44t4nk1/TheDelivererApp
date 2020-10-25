@@ -1,6 +1,7 @@
 import 'package:TheDeliverer/animations/BounceIn.dart';
 import 'package:TheDeliverer/screens/editProfilePage.dart';
 import 'package:TheDeliverer/screens/orderCard.dart';
+import 'package:TheDeliverer/screens/pastOrderPage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,24 +18,66 @@ class _ProfilePageState extends State<ProfilePage> {
   List<String> addresses = [
     'B-303, Kabir Astoria, Near Gayatri Party Plot, Gotri, Vadodara, Gujarat',
   ];
-  List<Map<String, String>> orders = [
+  List<Map<String, dynamic>> orders = [
     {
       "name": "Taara Maa",
       "status": "Delivered",
       "price": "200",
       "date": "27/10/20",
+      "items": [
+        {
+          "name": "Rajma Chawal",
+          "price": "60",
+          "quantitiy": "2",
+          "description": "Your favourite rajma chawal!",
+        },
+        {
+          "name": "Kadhi Chawal",
+          "price": "40",
+          "quantitiy": "3",
+          "description": "Your favourite kadhi chawal!",
+        },
+      ],
     },
     {
       "name": "Limra",
       "status": "Pending",
       "price": "135",
       "date": "27/10/20",
+      "items": [
+        {
+          "name": "Rajma Chawal",
+          "price": "40",
+          "quantitiy": "2",
+          "description": "Your favourite rajma chawal!",
+        },
+        {
+          "name": "Kadhi Chawal",
+          "price": "50",
+          "quantitiy": "3",
+          "description": "Your favourite kadhi chawal!",
+        },
+      ],
     },
     {
       "name": "Taara Maa",
       "status": "Delivered",
       "price": "399",
       "date": "27/10/20",
+      "items": [
+        {
+          "name": "Rajma Chawal",
+          "price": "60",
+          "quantitiy": "1",
+          "description": "Your favourite rajma chawal!",
+        },
+        {
+          "name": "Kadhi Chawal",
+          "price": "40",
+          "quantitiy": "1",
+          "description": "Your favourite kadhi chawal!",
+        },
+      ],
     },
   ];
   @override
@@ -267,13 +310,25 @@ class _ProfilePageState extends State<ProfilePage> {
                     left: size.width * 4 / 100,
                     right: size.width * 4 / 100,
                   ),
-                  child: OrderCard(
-                    name: item["name"],
-                    status: item["status"],
-                    price: item["price"],
-                    date: item["date"],
+                  child: FlatButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        BounceIn(
+                            widget: PastOrder(
+                          restaurantname: item["name"],
+                          items: item["items"],
+                        )),
+                      );
+                    },
+                    child: OrderCard(
+                      name: item["name"],
+                      status: item["status"],
+                      price: item["price"],
+                      date: item["date"],
+                    ),
                   ),
-                )
+                ),
             ],
           ),
         ),
