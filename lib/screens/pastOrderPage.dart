@@ -1,5 +1,6 @@
 import 'package:TheDeliverer/animations/BounceIn.dart';
 import 'package:TheDeliverer/screens/homePage.dart';
+import 'package:TheDeliverer/screens/previousOrderCard.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,6 +30,17 @@ class _PastOrderState extends State<PastOrder> {
             color: Colors.white,
           ),
         ),
+      ),
+      body: Column(
+        children: [
+          for (var item in widget.items)
+            PastItem(
+              name: item["name"],
+              price: item["price"],
+              description: item["description"],
+              quantity: item["quantity"],
+            ),
+        ],
       ),
     );
   }

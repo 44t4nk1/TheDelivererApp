@@ -28,13 +28,13 @@ class _ProfilePageState extends State<ProfilePage> {
         {
           "name": "Rajma Chawal",
           "price": "60",
-          "quantitiy": "2",
+          "quantity": "2",
           "description": "Your favourite rajma chawal!",
         },
         {
           "name": "Kadhi Chawal",
           "price": "40",
-          "quantitiy": "3",
+          "quantity": "3",
           "description": "Your favourite kadhi chawal!",
         },
       ],
@@ -48,13 +48,13 @@ class _ProfilePageState extends State<ProfilePage> {
         {
           "name": "Rajma Chawal",
           "price": "40",
-          "quantitiy": "2",
+          "quantity": "2",
           "description": "Your favourite rajma chawal!",
         },
         {
           "name": "Kadhi Chawal",
           "price": "50",
-          "quantitiy": "3",
+          "quantity": "3",
           "description": "Your favourite kadhi chawal!",
         },
       ],
@@ -68,13 +68,13 @@ class _ProfilePageState extends State<ProfilePage> {
         {
           "name": "Rajma Chawal",
           "price": "60",
-          "quantitiy": "1",
+          "quantity": "1",
           "description": "Your favourite rajma chawal!",
         },
         {
           "name": "Kadhi Chawal",
           "price": "40",
-          "quantitiy": "1",
+          "quantity": "1",
           "description": "Your favourite kadhi chawal!",
         },
       ],
