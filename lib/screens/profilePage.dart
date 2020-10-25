@@ -1,5 +1,6 @@
 import 'package:TheDeliverer/animations/BounceIn.dart';
 import 'package:TheDeliverer/screens/editProfilePage.dart';
+import 'package:TheDeliverer/screens/orderCard.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,6 +16,26 @@ class _ProfilePageState extends State<ProfilePage> {
   String address = '';
   List<String> addresses = [
     'B-303, Kabir Astoria, Near Gayatri Party Plot, Gotri, Vadodara, Gujarat',
+  ];
+  List<Map<String, String>> orders = [
+    {
+      "name": "Taara Maa",
+      "status": "Delivered",
+      "price": "200",
+      "date": "27/10/20",
+    },
+    {
+      "name": "Limra",
+      "status": "Pending",
+      "price": "135",
+      "date": "27/10/20",
+    },
+    {
+      "name": "Taara Maa",
+      "status": "Delivered",
+      "price": "399",
+      "date": "27/10/20",
+    },
   ];
   @override
   Widget build(BuildContext context) {
@@ -237,6 +258,22 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
+              for (var item in orders)
+                Container(
+                  margin: EdgeInsets.symmetric(
+                    vertical: size.height * 1 / 100,
+                  ),
+                  padding: EdgeInsets.only(
+                    left: size.width * 4 / 100,
+                    right: size.width * 4 / 100,
+                  ),
+                  child: OrderCard(
+                    name: item["name"],
+                    status: item["status"],
+                    price: item["price"],
+                    date: item["date"],
+                  ),
+                )
             ],
           ),
         ),
