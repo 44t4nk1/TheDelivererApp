@@ -126,15 +126,15 @@ class _LandingPageState extends State<LandingPage> {
                   shrinkWrap: false,
                   scrollDirection: Axis.horizontal,
                   itemCount: restaurants.length,
-                  padding:
-                      EdgeInsets.symmetric(horizontal: size.width * 4 / 100),
                   itemBuilder: (context, index) {
                     return Container(
-                      margin: EdgeInsets.only(right: size.width * 4 / 100),
-                      child: RestaurantCard(
-                        name: restaurants[index]['name'],
-                        address: restaurants[index]['address'],
-                        distance: restaurants[index]['distance'],
+                      child: FlatButton(
+                        onPressed: () {},
+                        child: RestaurantCard(
+                          name: restaurants[index]['name'],
+                          address: restaurants[index]['address'],
+                          distance: restaurants[index]['distance'],
+                        ),
                       ),
                     );
                   },
