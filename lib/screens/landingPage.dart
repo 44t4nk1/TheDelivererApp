@@ -1,4 +1,6 @@
+import 'package:TheDeliverer/animations/BounceIn.dart';
 import 'package:TheDeliverer/screens/foodCard.dart';
+import 'package:TheDeliverer/screens/orderPage.dart';
 import 'package:TheDeliverer/screens/restaurantCard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -165,7 +167,17 @@ class _LandingPageState extends State<LandingPage> {
                   itemBuilder: (context, index) {
                     return Container(
                       child: FlatButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            BounceIn(
+                              widget: OrderPage(
+                                name: restaurants[index]['name'],
+                                items: restaurants[index]['items'],
+                              ),
+                            ),
+                          );
+                        },
                         child: RestaurantCard(
                           name: restaurants[index]['name'],
                           address: restaurants[index]['address'],
