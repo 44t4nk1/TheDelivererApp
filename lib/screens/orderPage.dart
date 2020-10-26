@@ -96,58 +96,68 @@ class _OrderPageState extends State<OrderPage> {
                             ),
                           ),
                         ),
-                        IconButton(
-                          icon: Icon(
-                            FontAwesomeIcons.minus,
-                            color: Color(0xfff55a42),
-                            size: 18,
-                          ),
-                          onPressed: () {
-                            if (int.parse(item["quantity"]) > 0) {
-                              setState(() {
-                                item["quantity"] =
-                                    (int.parse(item["quantity"]) - 1)
-                                        .toString();
-                                total = 0;
-                                for (var i in widget.items) {
-                                  total = total +
-                                      (int.parse(i["quantity"]) *
-                                          int.parse(i["price"]));
-                                }
-                              });
-                            }
-                          },
-                        ),
                         Container(
-                          width: size.width * 2 / 100,
-                          margin: EdgeInsets.only(top: size.height * 2 / 100),
-                          child: Text(
-                            item["quantity"],
-                            style: GoogleFonts.montserrat(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 20,
-                            ),
+                          margin: EdgeInsets.only(
+                            top: size.height * 1 / 100,
                           ),
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            FontAwesomeIcons.plus,
-                            color: Color(0xff42f59e),
-                            size: 18,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              IconButton(
+                                icon: Icon(
+                                  FontAwesomeIcons.minus,
+                                  color: Color(0xfff55a42),
+                                  size: 18,
+                                ),
+                                onPressed: () {
+                                  if (int.parse(item["quantity"]) > 0) {
+                                    setState(() {
+                                      item["quantity"] =
+                                          (int.parse(item["quantity"]) - 1)
+                                              .toString();
+                                      total = 0;
+                                      for (var i in widget.items) {
+                                        total = total +
+                                            (int.parse(i["quantity"]) *
+                                                int.parse(i["price"]));
+                                      }
+                                    });
+                                  }
+                                },
+                              ),
+                              Container(
+                                width: size.width * 2 / 100,
+                                child: Text(
+                                  item["quantity"],
+                                  style: GoogleFonts.montserrat(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                icon: Icon(
+                                  FontAwesomeIcons.plus,
+                                  color: Color(0xff42f59e),
+                                  size: 18,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    item["quantity"] =
+                                        (int.parse(item["quantity"]) + 1)
+                                            .toString();
+                                    total = 0;
+                                    for (var i in widget.items) {
+                                      total = total +
+                                          (int.parse(i["quantity"]) *
+                                              int.parse(i["price"]));
+                                    }
+                                  });
+                                },
+                              ),
+                            ],
                           ),
-                          onPressed: () {
-                            setState(() {
-                              item["quantity"] =
-                                  (int.parse(item["quantity"]) + 1).toString();
-                              total = 0;
-                              for (var i in widget.items) {
-                                total = total +
-                                    (int.parse(i["quantity"]) *
-                                        int.parse(i["price"]));
-                              }
-                            });
-                          },
                         ),
                       ],
                     ),
