@@ -43,16 +43,52 @@ class _LandingPageState extends State<LandingPage> {
       "name": "Raj Mahal",
       "address": "Raj Mahal, Akota Circle, Rajkot",
       "distance": "1.3",
+      "items": [
+        {
+          "name": "Rajma Chawal",
+          "price": "60",
+          "description": "Your favourite rajma chawal!",
+        },
+        {
+          "name": "Kadhi Chawal",
+          "price": "40",
+          "description": "Your favourite kadhi chawal!",
+        },
+      ],
     },
     {
       "name": "Surya Palace",
       "address": "Gotri",
       "distance": "7.2",
+      "items": [
+        {
+          "name": "Dry Manchurian",
+          "price": "60",
+          "description": "Your favourite chinese balls!",
+        },
+        {
+          "name": "Butter Naan",
+          "price": "40",
+          "description": "Indian Flatbread!",
+        },
+      ],
     },
     {
       "name": "McDonald's",
       "address": "Near FIITJEE, Sevasi",
       "distance": "3.7",
+      "items": [
+        {
+          "name": "McVeggie",
+          "price": "60",
+          "description": "Burger!",
+        },
+        {
+          "name": "McAloo Tikki",
+          "price": "40",
+          "description": "Burger!",
+        },
+      ],
     },
   ];
   @override
