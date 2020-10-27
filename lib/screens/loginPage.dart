@@ -51,30 +51,59 @@ class _LoginPageState extends State<LoginPage> {
                     right: size.width * 8 / 100,
                   ),
                   alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: size.width * 1 / 100,
-                    vertical: size.height * 0.8 / 100,
-                  ),
-                  width: double.infinity,
-                  height: size.height * 6 / 100,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Theme.of(context).accentColor),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
                   child: TextFormField(
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                    ),
                     cursorColor: Theme.of(context).accentColor,
                     decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(0.5),
                       prefixIcon: Icon(
                         FontAwesomeIcons.solidEnvelope,
                         color: Theme.of(context).accentColor,
                       ),
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none,
-                      errorBorder: InputBorder.none,
-                      disabledBorder: InputBorder.none,
+                      border: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(22),
+                        ),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
                       hintText: "Email-ID",
                       hintStyle: GoogleFonts.montserrat(
                         fontSize: size.height * 2 / 100,
@@ -93,24 +122,11 @@ class _LoginPageState extends State<LoginPage> {
                     right: size.width * 8 / 100,
                   ),
                   alignment: Alignment.center,
-                  padding: EdgeInsets.only(
-                    left: size.width * 1 / 100,
-                    right: size.width * 1 / 100,
-                    bottom: size.height * 0.8 / 100,
-                    top: size.height * 0.1 / 100,
-                  ),
-                  width: double.infinity,
-                  height: size.height * 6 / 100,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Theme.of(context).accentColor),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
                   child: TextFormField(
                     obscureText: _isHidden,
                     cursorColor: Theme.of(context).accentColor,
                     decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(0.5),
                       prefixIcon: Icon(
                         FontAwesomeIcons.lock,
                         color: Theme.of(context).accentColor,
@@ -128,11 +144,48 @@ class _LoginPageState extends State<LoginPage> {
                           });
                         },
                       ),
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none,
-                      errorBorder: InputBorder.none,
-                      disabledBorder: InputBorder.none,
+                      border: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(22),
+                        ),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
                       hintText: "Password",
                       hintStyle: GoogleFonts.montserrat(
                         fontSize: size.height * 2 / 100,

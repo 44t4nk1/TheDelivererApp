@@ -200,20 +200,16 @@ class _OrderPageState extends State<OrderPage> {
           ),
           Container(
             margin: EdgeInsets.only(
-              left: size.width * 25 / 100,
-              right: size.width * 25 / 100,
               top: size.height * 75 / 100,
+              left: size.width * 10 / 100,
+              right: size.width * 10 / 100,
             ),
             height: size.height * 7 / 100,
-            width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(
                 Radius.circular(25),
               ),
               color: Theme.of(context).accentColor,
-            ),
-            padding: EdgeInsets.all(
-              size.height * 1 / 100,
             ),
             child: FlatButton(
               onPressed: () {
@@ -224,8 +220,8 @@ class _OrderPageState extends State<OrderPage> {
                 child: Text(
                   "Place Order",
                   style: GoogleFonts.montserrat(
-                    fontSize: size.height * 2.6 / 100,
-                    fontWeight: FontWeight.w400,
+                    fontSize: size.height * 2.2 / 100,
+                    fontWeight: FontWeight.w500,
                     color: Theme.of(context).canvasColor,
                   ),
                 ),

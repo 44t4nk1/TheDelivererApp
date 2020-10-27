@@ -73,31 +73,60 @@ class _EditProfileState extends State<EditProfile> {
                     right: size.width * 8 / 100,
                   ),
                   alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: size.width * 1 / 100,
-                    vertical: size.height * 0.8 / 100,
-                  ),
-                  width: double.infinity,
-                  height: size.height * 6 / 100,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Theme.of(context).accentColor),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
                   child: TextFormField(
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                    ),
                     initialValue: "Siddharth",
                     cursorColor: Theme.of(context).accentColor,
                     decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(0.5),
                       prefixIcon: Icon(
                         FontAwesomeIcons.userAlt,
                         color: Theme.of(context).accentColor,
                       ),
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none,
-                      errorBorder: InputBorder.none,
-                      disabledBorder: InputBorder.none,
+                      border: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(22),
+                        ),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
                       hintText: "Name",
                       hintStyle: GoogleFonts.montserrat(
                         fontSize: size.height * 2 / 100,
@@ -116,31 +145,60 @@ class _EditProfileState extends State<EditProfile> {
                     right: size.width * 8 / 100,
                   ),
                   alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: size.width * 1 / 100,
-                    vertical: size.height * 0.8 / 100,
-                  ),
-                  width: double.infinity,
-                  height: size.height * 6 / 100,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Theme.of(context).accentColor),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
                   child: TextFormField(
-                    initialValue: "siddharthsingh3700@gmail.com",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                    ),
+                    initialValue: "siddharths@gmail.com",
                     cursorColor: Theme.of(context).accentColor,
                     decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(0.5),
                       prefixIcon: Icon(
                         FontAwesomeIcons.solidEnvelope,
                         color: Theme.of(context).accentColor,
                       ),
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none,
-                      errorBorder: InputBorder.none,
-                      disabledBorder: InputBorder.none,
+                      border: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(22),
+                        ),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
                       hintText: "Email-ID",
                       hintStyle: GoogleFonts.montserrat(
                         fontSize: size.height * 2 / 100,
@@ -159,31 +217,60 @@ class _EditProfileState extends State<EditProfile> {
                     right: size.width * 8 / 100,
                   ),
                   alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: size.width * 1 / 100,
-                    vertical: size.height * 0.8 / 100,
-                  ),
-                  width: double.infinity,
-                  height: size.height * 6 / 100,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Theme.of(context).accentColor),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
                   child: TextFormField(
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                    ),
                     initialValue: "+91 9909666900",
                     cursorColor: Theme.of(context).accentColor,
                     decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(0.5),
                       prefixIcon: Icon(
                         FontAwesomeIcons.phone,
                         color: Theme.of(context).accentColor,
                       ),
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none,
-                      errorBorder: InputBorder.none,
-                      disabledBorder: InputBorder.none,
+                      border: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(22),
+                        ),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        gapPadding: 1,
+                        borderRadius: BorderRadius.all(Radius.circular(22)),
+                        borderSide: BorderSide(
+                          color: Theme.of(context).accentColor,
+                          width: 1,
+                        ),
+                      ),
                       hintText: "Phone Number",
                       hintStyle: GoogleFonts.montserrat(
                         fontSize: size.height * 2 / 100,
