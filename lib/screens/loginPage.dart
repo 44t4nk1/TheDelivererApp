@@ -18,6 +18,8 @@ class _LoginPageState extends State<LoginPage> {
   bool _isHidden = true;
   bool _isLoading = false;
   String response;
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   Future<void> _submit() async {
     setState(() {
       _isLoading = true;
@@ -28,6 +30,7 @@ class _LoginPageState extends State<LoginPage> {
     _formKey.currentState.save();
 
     response = await Provider.of<Reg>(context, listen: false).login(_data);
+    print(response);
     await showDialog(
       context: context,
       child: AlertDialog(
@@ -36,9 +39,10 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
     if (response == "Login Successful") {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (ctx) => HomePage(
+      Navigator.push(
+        context,
+        BounceIn(
+          widget: HomePage(
             currentIndex: 0,
           ),
         ),
@@ -93,6 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           alignment: Alignment.center,
                           child: TextFormField(
+                            controller: email,
                             style: GoogleFonts.montserrat(
                               color: Colors.black,
                             ),
@@ -169,6 +174,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           alignment: Alignment.center,
                           child: TextFormField(
+                            controller: password,
                             obscureText: _isHidden,
                             cursorColor: Theme.of(context).accentColor,
                             decoration: InputDecoration(
@@ -266,14 +272,9 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           child: FlatButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                BounceIn(
-                                  widget: HomePage(
-                                    currentIndex: 0,
-                                  ),
-                                ),
-                              );
+                              _data['email'] = email.text;
+                              _data['password'] = password.text;
+                              _submit();
                             },
                             splashColor: Theme.of(context).accentColor,
                             child: Center(
