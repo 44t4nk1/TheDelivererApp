@@ -79,4 +79,14 @@ class Reg with ChangeNotifier {
     notifyListeners();
     return true;
   }
+
+  Future<void> logout() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+    _token = null;
+    _email = null;
+    _name = null;
+    _number = null;
+    notifyListeners();
+  }
 }

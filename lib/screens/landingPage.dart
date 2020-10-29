@@ -1,4 +1,6 @@
 import 'package:TheDeliverer/animations/BounceIn.dart';
+import 'package:TheDeliverer/main.dart';
+import 'package:TheDeliverer/providers/reg.dart';
 import 'package:TheDeliverer/screens/foodCard.dart';
 import 'package:TheDeliverer/screens/orderPage.dart';
 import 'package:TheDeliverer/screens/restaurantCard.dart';
@@ -6,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class LandingPage extends StatefulWidget {
   @override
@@ -230,11 +233,14 @@ class _LandingPageState extends State<LandingPage> {
                     padding: EdgeInsets.only(right: size.width * 4 / 100),
                     child: IconButton(
                       icon: Icon(
-                        FontAwesomeIcons.shoppingBasket,
+                        FontAwesomeIcons.signOutAlt,
                         size: 20,
                         color: Theme.of(context).accentColor,
                       ),
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Provider.of<Reg>(context, listen: false).logout();
+                        RestartWidget.restartApp(context);
+                      },
                     ),
                   ),
                 ],
