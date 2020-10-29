@@ -92,11 +92,7 @@ class MyApp extends StatelessWidget {
                           currentIndex: 0,
                         );
                       } else {
-                        return Scaffold(
-                          body: Center(
-                            child: CircularProgressIndicator(),
-                          ),
-                        );
+                        return LoginPage();
                       }
                     }
                   },
