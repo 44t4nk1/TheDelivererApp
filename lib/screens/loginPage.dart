@@ -30,7 +30,6 @@ class _LoginPageState extends State<LoginPage> {
     _formKey.currentState.save();
 
     response = await Provider.of<Reg>(context, listen: false).login(_data);
-    print(response);
     await showDialog(
       context: context,
       child: AlertDialog(
@@ -48,9 +47,11 @@ class _LoginPageState extends State<LoginPage> {
         ),
       );
     }
-    setState(() {
-      _isLoading = false;
-    });
+    if (mounted) {
+      setState(() {
+        _isLoading = false;
+      });
+    }
   }
 
   @override

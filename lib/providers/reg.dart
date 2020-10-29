@@ -65,6 +65,24 @@ class Reg with ChangeNotifier {
     }
   }
 
+  Future<String> signup(Map<String, dynamic> data) async {
+    final url = 'https://thedeliverer.herokuapp.com/api/user/register';
+    data["role"] = 1;
+    try {
+      final response = await http.post(
+        url,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: json.encode(data),
+      );
+      final resBody = json.decode(response.body);
+      return resBody["message"];
+    } catch (error) {
+      throw error;
+    }
+  }
+
   Future<void> tryAutoLogin() async {
     final prefs = await SharedPreferences.getInstance();
     if (!prefs.containsKey('userData')) {
