@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -43,7 +42,7 @@ class Reg with ChangeNotifier {
       final resBody = json.decode(response.body);
       if (response.statusCode == 200) {
         if (resBody["error"] != true) {
-          _token = resBody["JWT"];
+          _token = "Bearer " + resBody["JWT"];
           final userDetails = resBody["userDetails"];
           _name = userDetails["name"];
           _email = userDetails["email"];

@@ -1,4 +1,5 @@
 import 'package:TheDeliverer/providers/reg.dart';
+import 'package:TheDeliverer/providers/userDetails.dart';
 import 'package:TheDeliverer/screens/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -54,6 +55,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(
           value: Reg(),
+        ),
+        ChangeNotifierProvider.value(
+          value: User(),
         ),
       ],
       child: Consumer<Reg>(

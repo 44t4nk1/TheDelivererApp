@@ -1,10 +1,13 @@
 import 'package:TheDeliverer/animations/BounceIn.dart';
+import 'package:TheDeliverer/providers/reg.dart';
+import 'package:TheDeliverer/providers/userDetails.dart';
 import 'package:TheDeliverer/screens/editProfilePage.dart';
 import 'package:TheDeliverer/screens/orderCard.dart';
 import 'package:TheDeliverer/screens/pastOrderPage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -80,6 +83,13 @@ class _ProfilePageState extends State<ProfilePage> {
       ],
     },
   ];
+
+  void initState() {
+    super.initState();
+    Provider.of<User>(context, listen: false)
+        .fetchDetails(Provider.of<Reg>(context, listen: false).token);
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
