@@ -1,6 +1,7 @@
 import 'package:TheDeliverer/animations/BounceIn.dart';
 import 'package:TheDeliverer/providers/reg.dart';
 import 'package:TheDeliverer/providers/userDetails.dart';
+import 'package:TheDeliverer/screens/addAddressScreen.dart';
 import 'package:TheDeliverer/screens/editProfilePage.dart';
 import 'package:TheDeliverer/screens/orderCard.dart';
 import 'package:TheDeliverer/screens/pastOrderPage.dart';
@@ -15,7 +16,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  bool newAddress = false;
   final maxLines = 5;
   String address = '';
   int code;
@@ -234,53 +234,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     SizedBox(
                       height: size.height * 1.5 / 100,
                     ),
-                    newAddress
-                        ? Container(
-                            margin: EdgeInsets.only(
-                              left: size.width * 8 / 100,
-                              right: size.width * 8 / 100,
-                            ),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: size.width * 5 / 100,
-                              vertical: size.height * 0.8 / 100,
-                            ),
-                            width: double.infinity,
-                            height: size.height * maxLines * 3.5 / 100,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: Theme.of(context).accentColor),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10),
-                              ),
-                            ),
-                            child: TextFormField(
-                              maxLines: maxLines,
-                              cursorColor: Theme.of(context).accentColor,
-                              onChanged: (value) {
-                                address = value;
-                              },
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                focusedBorder: InputBorder.none,
-                                enabledBorder: InputBorder.none,
-                                errorBorder: InputBorder.none,
-                                disabledBorder: InputBorder.none,
-                                hintText: "Enter another address",
-                                hintStyle: GoogleFonts.montserrat(
-                                  fontSize: size.height * 2 / 100,
-                                  fontWeight: FontWeight.w300,
-                                  textStyle:
-                                      Theme.of(context).textTheme.bodyText1,
-                                ),
-                              ),
-                            ),
-                          )
-                        : Container(height: 0),
-                    newAddress
-                        ? SizedBox(
-                            height: size.height * 1.5 / 100,
-                          )
-                        : Container(height: 0),
                     Container(
                       margin: EdgeInsets.symmetric(
                         horizontal: size.width * 8 / 100,
@@ -299,20 +252,17 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       child: FlatButton(
                         onPressed: () {
-                          setState(() {
-                            newAddress = !newAddress;
-                            if (newAddress == false && address != '') {
-                              setState(() {
-                                addresses.add(address);
-                                address = '';
-                              });
-                            }
-                          });
+                          Navigator.push(
+                            context,
+                            BounceIn(
+                              widget: AddAddress(),
+                            ),
+                          );
                         },
                         splashColor: Theme.of(context).canvasColor,
                         child: Center(
                           child: Text(
-                            newAddress ? "Add" : "+ Address",
+                            "+ Address",
                             style: GoogleFonts.montserrat(
                               fontSize: size.height * 3 / 100,
                               fontWeight: FontWeight.w400,
