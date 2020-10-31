@@ -21,7 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
   int code;
   bool isLoading = false;
   Map userDetails;
-  List addresses;
+  List<dynamic> addresses;
   List<Map<String, dynamic>> orders = [
     {
       "name": "Taara Maa",
@@ -98,7 +98,6 @@ class _ProfilePageState extends State<ProfilePage> {
         .fetchDetails(Provider.of<Reg>(context, listen: false).token);
     userDetails = Provider.of<User>(context, listen: false).userDetails;
     addresses = userDetails["UserAddresses"];
-    print(userDetails);
     setState(() {
       isLoading = false;
     });
@@ -219,7 +218,15 @@ class _ProfilePageState extends State<ProfilePage> {
                                   right: size.width * 4 / 100,
                                 ),
                                 child: Text(
-                                  i,
+                                  i["addressLine1"] +
+                                      ', ' +
+                                      i["addressLine2"] +
+                                      ', ' +
+                                      i["city"] +
+                                      ', ' +
+                                      i["state"] +
+                                      ', ' +
+                                      i["pinCode"].toString(),
                                   style: GoogleFonts.montserrat(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w400,
