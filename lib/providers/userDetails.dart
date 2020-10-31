@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class User with ChangeNotifier {
-  Future<void> fetchDetails(String token) async {
+  Map _userDetails;
+  Map get userDetails {
+    return _userDetails;
+  }
+
+  Future<int> fetchDetails(String token) async {
     final url = "https://thedeliverer.herokuapp.com/api/user/details/fetch";
     try {
       final response = await http.get(
@@ -14,7 +19,8 @@ class User with ChangeNotifier {
         },
       );
       final resBody = json.decode(response.body);
-      print(resBody);
+      _userDetails = resBody["userDetails"];
+      return resBody["code"];
     } catch (error) {
       throw error;
     }
