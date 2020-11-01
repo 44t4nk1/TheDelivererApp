@@ -70,7 +70,20 @@ class _SelectAddressScreenState extends State<SelectAddressScreen> {
                 );
               },
               child: Container(
-                margin: EdgeInsets.only(bottom: size.height * 1 / 100),
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Colors.black,
+                      width: 0.75,
+                    ),
+                  ),
+                ),
+                margin: EdgeInsets.only(
+                  bottom: size.height * 1 / 100,
+                ),
+                padding: EdgeInsets.only(
+                  bottom: size.height * 1 / 100,
+                ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

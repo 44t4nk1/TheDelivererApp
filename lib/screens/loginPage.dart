@@ -30,13 +30,7 @@ class _LoginPageState extends State<LoginPage> {
     _formKey.currentState.save();
 
     response = await Provider.of<Reg>(context, listen: false).login(_data);
-    await showDialog(
-      context: context,
-      child: AlertDialog(
-        title: Text('Message'),
-        content: Text(response),
-      ),
-    );
+
     if (response == "Login Successful") {
       Navigator.push(
         context,
@@ -46,11 +40,19 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       );
-    }
-    if (mounted) {
-      setState(() {
-        _isLoading = false;
-      });
+    } else {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+      await showDialog(
+        context: context,
+        child: AlertDialog(
+          title: Text('Message'),
+          content: Text(response),
+        ),
+      );
     }
   }
 

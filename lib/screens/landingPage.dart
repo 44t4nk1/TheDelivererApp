@@ -8,6 +8,7 @@ import 'package:TheDeliverer/providers/userDetails.dart';
 import 'package:TheDeliverer/screens/orderPage.dart';
 import 'package:TheDeliverer/screens/restaurantCard.dart';
 import 'package:TheDeliverer/screens/selectAddress.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -193,37 +194,69 @@ class _LandingPageState extends State<LandingPage> {
                     SizedBox(
                       height: size.height * 2 / 100,
                     ),
-                    Container(
-                      height: size.height * 20 / 100,
-                      width: double.maxFinite,
-                      child: ListView.builder(
-                        shrinkWrap: false,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: restaurants.length,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            child: FlatButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  BounceIn(
-                                    widget: OrderPage(
+                    extractedUserData["addressId"] == ''
+                        ? Container(
+                            height: size.height * 20 / 100,
+                            width: double.maxFinite,
+                            margin: EdgeInsets.symmetric(
+                              horizontal: size.width * 4 / 100,
+                            ),
+                            child: DottedBorder(
+                              dashPattern: [20, 25],
+                              strokeWidth: 2,
+                              borderType: BorderType.RRect,
+                              radius: Radius.circular(30),
+                              color: Theme.of(context).accentColor,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xffabc7ff),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                width: double.maxFinite,
+                                child: Center(
+                                  child: Text(
+                                    'Please choose an address',
+                                    style: GoogleFonts.montserrat(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Theme.of(context).accentColor,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        : Container(
+                            height: size.height * 20 / 100,
+                            width: double.maxFinite,
+                            child: ListView.builder(
+                              shrinkWrap: false,
+                              scrollDirection: Axis.horizontal,
+                              itemCount: restaurants.length,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  child: FlatButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        BounceIn(
+                                          widget: OrderPage(
+                                            name: restaurants[index]['name'],
+                                            items: restaurants[index]['items'],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                    child: RestaurantCard(
                                       name: restaurants[index]['name'],
-                                      items: restaurants[index]['items'],
+                                      address: restaurants[index]['address'],
+                                      distance: restaurants[index]['distance'],
                                     ),
                                   ),
                                 );
                               },
-                              child: RestaurantCard(
-                                name: restaurants[index]['name'],
-                                address: restaurants[index]['address'],
-                                distance: restaurants[index]['distance'],
-                              ),
                             ),
-                          );
-                        },
-                      ),
-                    ),
+                          ),
                   ],
                 ),
               ),
