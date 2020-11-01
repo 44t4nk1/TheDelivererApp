@@ -13,7 +13,6 @@ import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'globals.dart' as globals;
 import 'package:provider/provider.dart';
 
 class LandingPage extends StatefulWidget {
@@ -27,8 +26,7 @@ class _LandingPageState extends State<LandingPage> {
     visitScreen();
   }
 
-  Map<String, Object> extractedUserData = {};
-
+  Map extractedUserData = {};
   bool isLoading = false;
   Future<void> visitScreen() async {
     setState(() {
@@ -37,10 +35,8 @@ class _LandingPageState extends State<LandingPage> {
     await Provider.of<User>(context, listen: false)
         .fetchDetails(Provider.of<Reg>(context, listen: false).token);
     final prefs = await SharedPreferences.getInstance();
-    extractedUserData =
-        json.decode(prefs.getString('currentAddress')) as Map<String, Object> ??
-            {};
-    // print(extractedUserData);
+    extractedUserData = json.decode(
+        prefs.getString('currentAddress') ?? json.encode({'addressId': ''}));
     setState(() {
       isLoading = false;
     });
@@ -265,8 +261,8 @@ class _LandingPageState extends State<LandingPage> {
                           },
                           child: Container(
                             child: Text(
-                              extractedUserData == null
-                                  ? "Select an Address"
+                              extractedUserData["addressId"] == ''
+                                  ? 'Select an Address'
                                   : extractedUserData["city"].toString() +
                                       ', ' +
                                       extractedUserData["state"].toString(),

@@ -8,7 +8,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'globals.dart' as globals;
 
 class SelectAddressScreen extends StatefulWidget {
   @override
@@ -61,7 +60,6 @@ class _SelectAddressScreenState extends State<SelectAddressScreen> {
                   'pinCode': i["pinCode"],
                 });
                 await prefs.setString('currentAddress', _prefsData);
-                print(_prefsData);
                 Navigator.push(
                   context,
                   BounceOut(
