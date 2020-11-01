@@ -372,8 +372,7 @@ class _EditProfileState extends State<EditProfile> {
                             onPressed: () {
                               _data["name"] = userDetails["name"];
                               _data["email"] = userDetails["email"];
-                              _data["phone"] = userDetails["phoneNumber"];
-                              print(_data);
+                              _data["phoneNumber"] = userDetails["phoneNumber"];
                               _submit();
                             },
                             splashColor: Theme.of(context).accentColor,

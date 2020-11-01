@@ -71,6 +71,7 @@ class User with ChangeNotifier {
         body: json.encode(data),
       );
       final resBody = json.decode(response.body);
+      print(resBody);
       return resBody["code"];
     } catch (error) {
       throw error;
