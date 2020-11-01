@@ -1,8 +1,8 @@
 import 'dart:convert';
-
 import 'package:TheDeliverer/animations/BounceIn.dart';
 import 'package:TheDeliverer/main.dart';
 import 'package:TheDeliverer/providers/reg.dart';
+import 'package:TheDeliverer/providers/restaurants.dart';
 import 'package:TheDeliverer/screens/foodCard.dart';
 import 'package:TheDeliverer/providers/userDetails.dart';
 import 'package:TheDeliverer/screens/orderPage.dart';
@@ -27,6 +27,7 @@ class _LandingPageState extends State<LandingPage> {
     visitScreen();
   }
 
+  List restaurants = [];
   Map extractedUserData = {};
   bool isLoading = false;
   Future<void> visitScreen() async {
@@ -36,8 +37,15 @@ class _LandingPageState extends State<LandingPage> {
     await Provider.of<User>(context, listen: false)
         .fetchDetails(Provider.of<Reg>(context, listen: false).token);
     final prefs = await SharedPreferences.getInstance();
-    extractedUserData = json.decode(
+    extractedUserData = await json.decode(
         prefs.getString('currentAddress') ?? json.encode({'addressId': ''}));
+    if (extractedUserData["addressId"] != '') {
+      await Provider.of<Restaurant>(context, listen: false).fetchRestaurants(
+          extractedUserData["addressId"],
+          Provider.of<Reg>(context, listen: false).token);
+      restaurants =
+          Provider.of<Restaurant>(context, listen: false).restaurantDetails;
+    }
     setState(() {
       isLoading = false;
     });
@@ -70,59 +78,7 @@ class _LandingPageState extends State<LandingPage> {
       "price": "199",
     },
   ];
-  final List restaurants = [
-    {
-      "name": "Raj Mahal",
-      "address": "Raj Mahal, Akota Circle, Rajkot",
-      "distance": "1.3",
-      "items": [
-        {
-          "name": "Rajma Chawal",
-          "price": "60",
-          "description": "Your favourite rajma chawal!",
-        },
-        {
-          "name": "Kadhi Chawal",
-          "price": "40",
-          "description": "Your favourite kadhi chawal!",
-        },
-      ],
-    },
-    {
-      "name": "Surya Palace",
-      "address": "Gotri",
-      "distance": "7.2",
-      "items": [
-        {
-          "name": "Dry Manchurian",
-          "price": "60",
-          "description": "Your favourite chinese balls!",
-        },
-        {
-          "name": "Butter Naan",
-          "price": "40",
-          "description": "Indian Flatbread!",
-        },
-      ],
-    },
-    {
-      "name": "McDonald's",
-      "address": "Near FIITJEE, Sevasi",
-      "distance": "3.7",
-      "items": [
-        {
-          "name": "McVeggie",
-          "price": "60",
-          "description": "Burger!",
-        },
-        {
-          "name": "McAloo Tikki",
-          "price": "40",
-          "description": "Burger!",
-        },
-      ],
-    },
-  ];
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -248,9 +204,17 @@ class _LandingPageState extends State<LandingPage> {
                                       );
                                     },
                                     child: RestaurantCard(
-                                      name: restaurants[index]['name'],
-                                      address: restaurants[index]['address'],
-                                      distance: restaurants[index]['distance'],
+                                      name: restaurants[index]
+                                          ['restaurantName'],
+                                      addressLine1: restaurants[index]
+                                          ['addressLine1'],
+                                      addressLine2: restaurants[index]
+                                          ['addressLine2'],
+                                      id: restaurants[index]['restaurantId'],
+                                      state: restaurants[index]['state'],
+                                      city: restaurants[index]['city'],
+                                      pinCode: restaurants[index]['pinCode']
+                                          .toString(),
                                     ),
                                   ),
                                 );

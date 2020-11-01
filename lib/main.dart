@@ -1,4 +1,5 @@
 import 'package:TheDeliverer/providers/reg.dart';
+import 'package:TheDeliverer/providers/restaurants.dart';
 import 'package:TheDeliverer/providers/userDetails.dart';
 import 'package:TheDeliverer/screens/homePage.dart';
 import 'package:flutter/material.dart';
@@ -58,6 +59,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider.value(
           value: User(),
+        ),
+        ChangeNotifierProvider.value(
+          value: Restaurant(),
         ),
       ],
       child: Consumer<Reg>(
