@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:TheDeliverer/animations/BounceIn.dart';
 import 'package:TheDeliverer/main.dart';
 import 'package:TheDeliverer/providers/reg.dart';
@@ -10,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'globals.dart' as globals;
 import 'package:provider/provider.dart';
 
@@ -24,6 +27,8 @@ class _LandingPageState extends State<LandingPage> {
     visitScreen();
   }
 
+  Map<String, Object> extractedUserData = {};
+
   bool isLoading = false;
   Future<void> visitScreen() async {
     setState(() {
@@ -31,6 +36,11 @@ class _LandingPageState extends State<LandingPage> {
     });
     await Provider.of<User>(context, listen: false)
         .fetchDetails(Provider.of<Reg>(context, listen: false).token);
+    final prefs = await SharedPreferences.getInstance();
+    extractedUserData =
+        json.decode(prefs.getString('currentAddress')) as Map<String, Object> ??
+            {};
+    // print(extractedUserData);
     setState(() {
       isLoading = false;
     });
@@ -255,11 +265,11 @@ class _LandingPageState extends State<LandingPage> {
                           },
                           child: Container(
                             child: Text(
-                              globals.currentAddress.isEmpty
+                              extractedUserData == null
                                   ? "Select an Address"
-                                  : globals.currentAddress["city"] +
+                                  : extractedUserData["city"].toString() +
                                       ', ' +
-                                      globals.currentAddress["state"],
+                                      extractedUserData["state"].toString(),
                               style: GoogleFonts.montserrat(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w800,
