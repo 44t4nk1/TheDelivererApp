@@ -2,7 +2,6 @@ import 'package:TheDeliverer/animations/BounceOut.dart';
 import 'package:TheDeliverer/providers/reg.dart';
 import 'package:TheDeliverer/providers/userDetails.dart';
 import 'package:TheDeliverer/screens/homePage.dart';
-import 'package:TheDeliverer/screens/profilePage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';

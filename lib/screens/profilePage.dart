@@ -16,8 +16,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final maxLines = 5;
-  String address = '';
   int code;
   bool isLoading = false;
   Map userDetails;

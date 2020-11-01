@@ -58,4 +58,22 @@ class User with ChangeNotifier {
       throw error;
     }
   }
+
+  Future<int> updateDetails(Map<String, String> data, String token) async {
+    final url = "https://thedeliverer.herokuapp.com/api/user/details/update";
+    try {
+      final response = await http.post(
+        url,
+        headers: {
+          'Content-Type': 'application/json',
+          "Authorization": token,
+        },
+        body: json.encode(data),
+      );
+      final resBody = json.decode(response.body);
+      return resBody["code"];
+    } catch (error) {
+      throw error;
+    }
+  }
 }
