@@ -1,5 +1,7 @@
+import 'package:TheDeliverer/animations/BounceIn.dart';
 import 'package:TheDeliverer/providers/reg.dart';
 import 'package:TheDeliverer/providers/restaurants.dart';
+import 'package:TheDeliverer/screens/orderPlaced.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,6 +24,7 @@ class _OrderPageState extends State<OrderPage> {
     visitScreen();
   }
 
+  bool _isButtonDisabled = false;
   List<dynamic> items = [];
   bool isLoading = false;
   Future<void> visitScreen() async {
@@ -196,7 +199,7 @@ class _OrderPageState extends State<OrderPage> {
                           style: GoogleFonts.montserrat(
                             color: Colors.black,
                             fontWeight: FontWeight.w700,
-                            fontSize: 20,
+                            fontSize: 16,
                           ),
                         ),
                       ),
@@ -230,18 +233,33 @@ class _OrderPageState extends State<OrderPage> {
                     color: Theme.of(context).accentColor,
                   ),
                   child: FlatButton(
-                    onPressed: () {
-                      for (var i in items) {
-                        if (i["quantity"] > 0) {
-                          var item = {
-                            "itemId": i["itemId"],
-                            "quantitiy": i["quantity"],
-                          };
-                          finalItems.add(item);
-                        }
-                      }
-                      print(finalItems);
-                    },
+                    onPressed: _isButtonDisabled
+                        ? null
+                        : () {
+                            setState(() {
+                              _isButtonDisabled = true;
+                            });
+                            for (var i in items) {
+                              if (i["quantity"] > 0) {
+                                var item = {
+                                  "itemId": i["itemId"],
+                                  "quantitiy": i["quantity"],
+                                };
+                                finalItems.add(item);
+                              }
+                            }
+
+                            Navigator.push(
+                              context,
+                              BounceIn(
+                                widget: OrderPlaced(
+                                  restaurantId: widget.restaurantId,
+                                  items: finalItems,
+                                  total: total,
+                                ),
+                              ),
+                            );
+                          },
                     splashColor: Theme.of(context).accentColor,
                     child: Center(
                       child: Text(
