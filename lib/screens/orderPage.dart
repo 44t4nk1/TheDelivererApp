@@ -243,7 +243,7 @@ class _OrderPageState extends State<OrderPage> {
                               if (i["quantity"] > 0) {
                                 var item = {
                                   "itemId": i["itemId"],
-                                  "quantitiy": i["quantity"],
+                                  "quantity": i["quantity"],
                                 };
                                 finalItems.add(item);
                               }
