@@ -42,4 +42,22 @@ class Restaurant with ChangeNotifier {
       throw error;
     }
   }
+
+  Future<int> placeOrder(Map<String, dynamic> data, String token) async {
+    final url = "https://thedeliverer.herokuapp.com/api/user/order/place";
+    try {
+      final response = await http.post(
+        url,
+        headers: {
+          'Content-Type': 'application/json',
+          "Authorization": token,
+        },
+        body: json.encode(data),
+      );
+      final resBody = json.decode(response.body);
+      return resBody["code"];
+    } catch (error) {
+      throw error;
+    }
+  }
 }
