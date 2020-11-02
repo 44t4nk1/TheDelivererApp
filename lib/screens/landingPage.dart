@@ -30,6 +30,7 @@ class _LandingPageState extends State<LandingPage> {
   List restaurants = [];
   Map extractedUserData = {};
   bool isLoading = false;
+  List<dynamic> items = [];
   Future<void> visitScreen() async {
     setState(() {
       isLoading = true;
@@ -193,7 +194,8 @@ class _LandingPageState extends State<LandingPage> {
                                 return Container(
                                   child: FlatButton(
                                     onPressed: () async {
-                                      await Provider.of<Restaurant>(context,
+                                      items = await Provider.of<Restaurant>(
+                                              context,
                                               listen: false)
                                           .fetchItems(
                                               restaurants[index]
@@ -201,15 +203,16 @@ class _LandingPageState extends State<LandingPage> {
                                               Provider.of<Reg>(context,
                                                       listen: false)
                                                   .token);
-                                      // Navigator.push(
-                                      //   context,
-                                      //   BounceIn(
-                                      //     widget: OrderPage(
-                                      //       name: restaurants[index]['name'],
-                                      //       items: restaurants[index]['items'],
-                                      //     ),
-                                      //   ),
-                                      // );
+                                      Navigator.push(
+                                        context,
+                                        BounceIn(
+                                          widget: OrderPage(
+                                            name: restaurants[index]
+                                                ['restaurantName'],
+                                            items: items,
+                                          ),
+                                        ),
+                                      );
                                     },
                                     child: RestaurantCard(
                                       name: restaurants[index]

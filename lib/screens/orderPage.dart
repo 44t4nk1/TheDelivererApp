@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class OrderPage extends StatefulWidget {
   final String name;
-  final List<Map<String, dynamic>> items;
+  final List<dynamic> items;
   @override
   _OrderPageState createState() => _OrderPageState();
   OrderPage({
@@ -17,10 +17,11 @@ class _OrderPageState extends State<OrderPage> {
   void initState() {
     super.initState();
     for (var item in widget.items) {
-      item["quantity"] = "0";
+      item["quantity"] = 0;
     }
   }
 
+  List<Map> finalItems = [];
   int total = 0;
   @override
   Widget build(BuildContext context) {
@@ -57,7 +58,7 @@ class _OrderPageState extends State<OrderPage> {
                                   top: size.height * 2 / 100,
                                   left: size.width * 6 / 100),
                               child: Text(
-                                item["name"],
+                                item["itemName"],
                                 style: GoogleFonts.montserrat(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w700,
@@ -71,7 +72,7 @@ class _OrderPageState extends State<OrderPage> {
                                   top: size.height * 0.2 / 100,
                                   left: size.width * 6 / 100),
                               child: Text(
-                                item["description"],
+                                item["itemDescription"],
                                 style: GoogleFonts.montserrat(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w400,
@@ -88,7 +89,7 @@ class _OrderPageState extends State<OrderPage> {
                             top: size.height * 2 / 100,
                           ),
                           child: Text(
-                            '₹' + item["price"],
+                            '₹' + item["price"].toString(),
                             style: GoogleFonts.montserrat(
                               color: Colors.black,
                               fontWeight: FontWeight.w700,
@@ -110,16 +111,13 @@ class _OrderPageState extends State<OrderPage> {
                                   size: 18,
                                 ),
                                 onPressed: () {
-                                  if (int.parse(item["quantity"]) > 0) {
+                                  if (item["quantity"] > 0) {
                                     setState(() {
-                                      item["quantity"] =
-                                          (int.parse(item["quantity"]) - 1)
-                                              .toString();
+                                      item["quantity"] = item["quantity"] - 1;
                                       total = 0;
                                       for (var i in widget.items) {
-                                        total = total +
-                                            (int.parse(i["quantity"]) *
-                                                int.parse(i["price"]));
+                                        total =
+                                            total + i["quantity"] * i["price"];
                                       }
                                     });
                                   }
@@ -128,7 +126,7 @@ class _OrderPageState extends State<OrderPage> {
                               Container(
                                 width: size.width * 2 / 100,
                                 child: Text(
-                                  item["quantity"],
+                                  item["quantity"].toString(),
                                   style: GoogleFonts.montserrat(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w700,
@@ -144,14 +142,11 @@ class _OrderPageState extends State<OrderPage> {
                                 ),
                                 onPressed: () {
                                   setState(() {
-                                    item["quantity"] =
-                                        (int.parse(item["quantity"]) + 1)
-                                            .toString();
+                                    item["quantity"] = item["quantity"] + 1;
                                     total = 0;
                                     for (var i in widget.items) {
-                                      total = total +
-                                          (int.parse(i["quantity"]) *
-                                              int.parse(i["price"]));
+                                      total =
+                                          total + i["quantity"] * i["price"];
                                     }
                                   });
                                 },
@@ -213,7 +208,16 @@ class _OrderPageState extends State<OrderPage> {
             ),
             child: FlatButton(
               onPressed: () {
-                print(widget.items.toString());
+                for (var i in widget.items) {
+                  if (i["quantity"] > 0) {
+                    var item = {
+                      "itemId": i["itemId"],
+                      "quantitiy": i["quantity"],
+                    };
+                    finalItems.add(item);
+                  }
+                }
+                print(finalItems);
               },
               splashColor: Theme.of(context).accentColor,
               child: Center(

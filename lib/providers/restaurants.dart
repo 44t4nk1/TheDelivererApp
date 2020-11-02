@@ -26,7 +26,7 @@ class Restaurant with ChangeNotifier {
     }
   }
 
-  Future<void> fetchItems(String restaurantId, String token) async {
+  Future<List<dynamic>> fetchItems(String restaurantId, String token) async {
     final url =
         "https://thedeliverer.herokuapp.com/api/restaurant/items/fetch/all?restaurantId=$restaurantId";
     try {
@@ -37,7 +37,7 @@ class Restaurant with ChangeNotifier {
         },
       );
       final resBody = json.decode(response.body);
-      print(resBody);
+      return resBody["items"];
     } catch (error) {
       throw error;
     }
