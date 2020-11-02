@@ -192,16 +192,24 @@ class _LandingPageState extends State<LandingPage> {
                               itemBuilder: (context, index) {
                                 return Container(
                                   child: FlatButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        BounceIn(
-                                          widget: OrderPage(
-                                            name: restaurants[index]['name'],
-                                            items: restaurants[index]['items'],
-                                          ),
-                                        ),
-                                      );
+                                    onPressed: () async {
+                                      await Provider.of<Restaurant>(context,
+                                              listen: false)
+                                          .fetchItems(
+                                              restaurants[index]
+                                                  ['restaurantId'],
+                                              Provider.of<Reg>(context,
+                                                      listen: false)
+                                                  .token);
+                                      // Navigator.push(
+                                      //   context,
+                                      //   BounceIn(
+                                      //     widget: OrderPage(
+                                      //       name: restaurants[index]['name'],
+                                      //       items: restaurants[index]['items'],
+                                      //     ),
+                                      //   ),
+                                      // );
                                     },
                                     child: RestaurantCard(
                                       name: restaurants[index]

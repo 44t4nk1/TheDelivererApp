@@ -25,4 +25,21 @@ class Restaurant with ChangeNotifier {
       throw error;
     }
   }
+
+  Future<void> fetchItems(String restaurantId, String token) async {
+    final url =
+        "https://thedeliverer.herokuapp.com/api/restaurant/items/fetch/all?restaurantId=$restaurantId";
+    try {
+      final response = await http.get(
+        url,
+        headers: {
+          "Authorization": token,
+        },
+      );
+      final resBody = json.decode(response.body);
+      print(resBody);
+    } catch (error) {
+      throw error;
+    }
+  }
 }
