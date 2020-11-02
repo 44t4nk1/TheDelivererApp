@@ -194,22 +194,14 @@ class _LandingPageState extends State<LandingPage> {
                                 return Container(
                                   child: FlatButton(
                                     onPressed: () async {
-                                      items = await Provider.of<Restaurant>(
-                                              context,
-                                              listen: false)
-                                          .fetchItems(
-                                              restaurants[index]
-                                                  ['restaurantId'],
-                                              Provider.of<Reg>(context,
-                                                      listen: false)
-                                                  .token);
                                       Navigator.push(
                                         context,
                                         BounceIn(
                                           widget: OrderPage(
+                                            restaurantId: restaurants[index]
+                                                ['restaurantId'],
                                             name: restaurants[index]
                                                 ['restaurantName'],
-                                            items: items,
                                           ),
                                         ),
                                       );
