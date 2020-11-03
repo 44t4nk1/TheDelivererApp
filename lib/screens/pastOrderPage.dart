@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 class PastOrder extends StatefulWidget {
   final String restaurantname;
   final List items;
+  final String status;
   final Map<String, dynamic> userAddress;
   final String total;
   final DateTime date;
@@ -16,6 +17,7 @@ class PastOrder extends StatefulWidget {
     @required this.userAddress,
     @required this.total,
     @required this.date,
+    @required this.status,
   });
 }
 
@@ -88,7 +90,9 @@ class _PastOrderState extends State<PastOrder> {
               margin: EdgeInsets.only(
                   top: size.height * 2 / 100, left: size.width * 6 / 100),
               child: Text(
-                "The order will be delivered at",
+                widget.status == "Delivered"
+                    ? "The order was delivered at"
+                    : "The order will be delivered at",
                 style: GoogleFonts.montserrat(
                   color: Colors.black,
                   fontWeight: FontWeight.w700,

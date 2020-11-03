@@ -264,6 +264,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     context,
                                     BounceIn(
                                       widget: PastOrder(
+                                        status: item["orderStatus"],
                                         restaurantname: item["Restaurant"]
                                             ["restaurantName"],
                                         items: item["OrderItems"],
@@ -322,6 +323,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     context,
                                     BounceIn(
                                       widget: PastOrder(
+                                        status: item["orderStatus"],
                                         restaurantname: item["Restaurant"]
                                             ["restaurantName"],
                                         items: item["OrderItems"],
