@@ -32,10 +32,10 @@ class _PastOrderState extends State<PastOrder> {
         children: [
           for (var item in widget.items)
             PastItem(
-              name: item["name"],
-              price: item["price"],
-              description: item["description"],
-              quantity: item["quantity"],
+              name: item["FoodItem"]["itemName"],
+              price: item["FoodItem"]["price"].toString(),
+              description: item["FoodItem"]["itemDescription"],
+              quantity: item["quantity"].toString(),
             ),
         ],
       ),

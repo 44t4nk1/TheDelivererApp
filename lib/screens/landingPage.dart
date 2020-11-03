@@ -35,8 +35,6 @@ class _LandingPageState extends State<LandingPage> {
     setState(() {
       isLoading = true;
     });
-    await Provider.of<User>(context, listen: false)
-        .fetchDetails(Provider.of<Reg>(context, listen: false).token);
     final prefs = await SharedPreferences.getInstance();
     extractedUserData = await json.decode(
         prefs.getString('currentAddress') ?? json.encode({'addressId': ''}));

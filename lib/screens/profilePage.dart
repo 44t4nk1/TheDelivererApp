@@ -19,7 +19,8 @@ class _ProfilePageState extends State<ProfilePage> {
   int code;
   bool isLoading = false;
   Map userDetails;
-  List<dynamic> addresses;
+  List<dynamic> addresses = [];
+  List<dynamic> pendingOrders = [];
   List<Map<String, dynamic>> orders = [
     {
       "name": "Taara Maa",
@@ -98,6 +99,8 @@ class _ProfilePageState extends State<ProfilePage> {
     await Provider.of<User>(context, listen: false)
         .pendingOrders(Provider.of<Reg>(context, listen: false).token);
     addresses = userDetails["UserAddresses"];
+    pendingOrders =
+        Provider.of<User>(context, listen: false).pendingOrdersList ?? [];
     setState(() {
       isLoading = false;
     });
@@ -293,29 +296,45 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ),
                     ),
-                    for (var item in orders)
+                    for (var item in pendingOrders)
                       Container(
                         margin: EdgeInsets.symmetric(
                           vertical: size.height * 1 / 100,
                         ),
-                        child: FlatButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              BounceIn(
-                                  widget: PastOrder(
-                                restaurantname: item["name"],
-                                items: item["items"],
-                              )),
-                            );
-                          },
-                          child: OrderCard(
-                            name: item["name"],
-                            status: item["status"],
-                            price: item["price"],
-                            date: item["date"],
-                          ),
-                        ),
+                        child: pendingOrders[0]["orders"] == 0
+                            ? Container(
+                                height: size.height * 5 / 100,
+                                width: double.infinity,
+                                child: Center(
+                                  child: Text(
+                                    "You have no pending orders!",
+                                    style: GoogleFonts.montserrat(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            : FlatButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    BounceIn(
+                                        widget: PastOrder(
+                                      restaurantname: item["Restaurant"]
+                                          ["restaurantName"],
+                                      items: item["OrderItems"],
+                                    )),
+                                  );
+                                },
+                                child: OrderCard(
+                                  name: item["Restaurant"]["restaurantName"],
+                                  status: item["orderStatus"],
+                                  price: item["total"],
+                                  date: DateTime.parse(item["orderDate"]),
+                                ),
+                              ),
                       ),
                   ],
                 ),

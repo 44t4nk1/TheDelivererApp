@@ -24,7 +24,7 @@ class PastItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: size.width * 45 / 100,
+                  width: size.width * 60 / 100,
                   margin: EdgeInsets.only(
                       top: size.height * 2 / 100, left: size.width * 6 / 100),
                   child: Text(
@@ -37,7 +37,7 @@ class PastItem extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: size.width * 45 / 100,
+                  width: size.width * 60 / 100,
                   margin: EdgeInsets.only(
                       top: size.height * 0.5 / 100, left: size.width * 6 / 100),
                   child: Text(

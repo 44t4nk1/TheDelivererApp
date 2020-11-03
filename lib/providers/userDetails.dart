@@ -8,6 +8,11 @@ class User with ChangeNotifier {
     return _userDetails;
   }
 
+  List<dynamic> _pendingOrdersList = [];
+  List<dynamic> get pendingOrdersList {
+    return _pendingOrdersList;
+  }
+
   Future<int> fetchDetails(String token) async {
     final url = "https://thedeliverer.herokuapp.com/api/user/details/fetch";
     try {
@@ -88,9 +93,17 @@ class User with ChangeNotifier {
         },
       );
       final resBody = json.decode(response.body);
-      print(resBody);
+      if (resBody["message"] != "You do not have any pending orders") {
+        _pendingOrdersList = resBody["orders"];
+      } else {
+        _pendingOrdersList = [
+          {"orders": 0}
+        ];
+      }
     } catch (error) {
       throw error;
     }
   }
 }
+
+// You do not have any delivered orders

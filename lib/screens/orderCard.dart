@@ -5,7 +5,7 @@ class OrderCard extends StatelessWidget {
   final String name;
   final String status;
   final String price;
-  final String date;
+  final DateTime date;
 
   OrderCard({
     @required this.name,
@@ -68,8 +68,18 @@ class OrderCard extends StatelessWidget {
                     top: size.height * 0.5 / 100, left: size.width * 6 / 100),
                 child: Text(
                   status == "Pending"
-                      ? 'Ordered on ' + date
-                      : 'Delivered on ' + date,
+                      ? 'Ordered on ' +
+                          date.day.toString() +
+                          '/' +
+                          date.month.toString() +
+                          '/' +
+                          date.year.toString()
+                      : 'Delivered on ' +
+                          date.day.toString() +
+                          '/' +
+                          date.month.toString() +
+                          '/' +
+                          date.year.toString(),
                   style: GoogleFonts.montserrat(
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
