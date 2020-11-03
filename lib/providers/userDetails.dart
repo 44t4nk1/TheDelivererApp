@@ -76,4 +76,21 @@ class User with ChangeNotifier {
       throw error;
     }
   }
+
+  Future<void> pendingOrders(String token) async {
+    final url =
+        "https://thedeliverer.herokuapp.com/api/user/orders/fetch/pending";
+    try {
+      final response = await http.get(
+        url,
+        headers: {
+          "Authorization": token,
+        },
+      );
+      final resBody = json.decode(response.body);
+      print(resBody);
+    } catch (error) {
+      throw error;
+    }
+  }
 }

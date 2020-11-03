@@ -10,7 +10,7 @@ class SearchPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            height: size.height * 2 / 100,
+            height: size.height * 6 / 100,
           ),
           Container(
             padding: EdgeInsets.only(

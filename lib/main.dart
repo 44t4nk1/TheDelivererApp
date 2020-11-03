@@ -70,7 +70,6 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             highlightColor: Colors.transparent,
             splashColor: Colors.transparent,
-            brightness: Brightness.light,
             canvasColor: Color(0xffffffff),
             accentColor: Color(0xff0047ed),
             secondaryHeaderColor: Color(0xff595fff),

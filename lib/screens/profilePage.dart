@@ -95,6 +95,8 @@ class _ProfilePageState extends State<ProfilePage> {
     code = await Provider.of<User>(context, listen: false)
         .fetchDetails(Provider.of<Reg>(context, listen: false).token);
     userDetails = Provider.of<User>(context, listen: false).userDetails;
+    await Provider.of<User>(context, listen: false)
+        .pendingOrders(Provider.of<Reg>(context, listen: false).token);
     addresses = userDetails["UserAddresses"];
     setState(() {
       isLoading = false;
@@ -269,7 +271,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           child: Text(
                             "+ Address",
                             style: GoogleFonts.montserrat(
-                              fontSize: size.height * 3 / 100,
+                              fontSize: size.height * 2 / 100,
                               fontWeight: FontWeight.w400,
                               color: Theme.of(context).accentColor,
                             ),
@@ -283,7 +285,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Container(
                       padding: EdgeInsets.only(left: size.width * 4 / 100),
                       child: Text(
-                        "Order History",
+                        "Pending Orders",
                         style: GoogleFonts.montserrat(
                           fontSize: 20,
                           fontWeight: FontWeight.w800,
@@ -295,10 +297,6 @@ class _ProfilePageState extends State<ProfilePage> {
                       Container(
                         margin: EdgeInsets.symmetric(
                           vertical: size.height * 1 / 100,
-                        ),
-                        padding: EdgeInsets.only(
-                          left: size.width * 4 / 100,
-                          right: size.width * 4 / 100,
                         ),
                         child: FlatButton(
                           onPressed: () {
