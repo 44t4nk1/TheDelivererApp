@@ -21,68 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Map userDetails;
   List<dynamic> addresses = [];
   List<dynamic> pendingOrders = [];
-  List<Map<String, dynamic>> orders = [
-    {
-      "name": "Taara Maa",
-      "status": "Delivered",
-      "price": "200",
-      "date": "27/10/20",
-      "items": [
-        {
-          "name": "Rajma Chawal",
-          "price": "60",
-          "quantity": "2",
-          "description": "Your favourite rajma chawal!",
-        },
-        {
-          "name": "Kadhi Chawal",
-          "price": "40",
-          "quantity": "3",
-          "description": "Your favourite kadhi chawal!",
-        },
-      ],
-    },
-    {
-      "name": "Limra",
-      "status": "Pending",
-      "price": "135",
-      "date": "27/10/20",
-      "items": [
-        {
-          "name": "Rajma Chawal",
-          "price": "40",
-          "quantity": "2",
-          "description": "Your favourite rajma chawal!",
-        },
-        {
-          "name": "Kadhi Chawal",
-          "price": "50",
-          "quantity": "3",
-          "description": "Your favourite kadhi chawal!",
-        },
-      ],
-    },
-    {
-      "name": "Taara Maa",
-      "status": "Delivered",
-      "price": "399",
-      "date": "27/10/20",
-      "items": [
-        {
-          "name": "Rajma Chawal",
-          "price": "60",
-          "quantity": "1",
-          "description": "Your favourite rajma chawal!",
-        },
-        {
-          "name": "Kadhi Chawal",
-          "price": "40",
-          "quantity": "1",
-          "description": "Your favourite kadhi chawal!",
-        },
-      ],
-    },
-  ];
+  List<dynamic> deliveredOrders = [];
 
   void initState() {
     super.initState();
@@ -98,9 +37,12 @@ class _ProfilePageState extends State<ProfilePage> {
     userDetails = Provider.of<User>(context, listen: false).userDetails;
     await Provider.of<User>(context, listen: false)
         .pendingOrders(Provider.of<Reg>(context, listen: false).token);
+    await Provider.of<User>(context, listen: false)
+        .deliveredOrders(Provider.of<Reg>(context, listen: false).token);
     addresses = userDetails["UserAddresses"];
-    pendingOrders =
-        Provider.of<User>(context, listen: false).pendingOrdersList ?? [];
+    pendingOrders = Provider.of<User>(context, listen: false).pendingOrdersList;
+    deliveredOrders =
+        Provider.of<User>(context, listen: false).deliveredOrdersList;
     setState(() {
       isLoading = false;
     });
@@ -308,6 +250,64 @@ class _ProfilePageState extends State<ProfilePage> {
                                 child: Center(
                                   child: Text(
                                     "You have no pending orders!",
+                                    style: GoogleFonts.montserrat(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            : FlatButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    BounceIn(
+                                      widget: PastOrder(
+                                        restaurantname: item["Restaurant"]
+                                            ["restaurantName"],
+                                        items: item["OrderItems"],
+                                        userAddress: item["UserAddress"],
+                                        total: item["total"],
+                                        date: DateTime.parse(item["orderDate"]),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: OrderCard(
+                                  name: item["Restaurant"]["restaurantName"],
+                                  status: item["orderStatus"],
+                                  price: item["total"],
+                                  date: DateTime.parse(item["orderDate"]),
+                                ),
+                              ),
+                      ),
+                    SizedBox(
+                      height: size.height * 3 / 100,
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: size.width * 4 / 100),
+                      child: Text(
+                        "Delivered Orders",
+                        style: GoogleFonts.montserrat(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    for (var item in deliveredOrders)
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          vertical: size.height * 1 / 100,
+                        ),
+                        child: deliveredOrders[0]["orders"] == 0
+                            ? Container(
+                                height: size.height * 5 / 100,
+                                width: double.infinity,
+                                child: Center(
+                                  child: Text(
+                                    "You have no delivered orders!",
                                     style: GoogleFonts.montserrat(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,

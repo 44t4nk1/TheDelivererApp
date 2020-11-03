@@ -112,7 +112,7 @@ class User with ChangeNotifier {
 
   Future<void> deliveredOrders(String token) async {
     final url =
-        "https://thedeliverer.herokuapp.com/api/user/orders/fetch/pending";
+        "https://thedeliverer.herokuapp.com/api/user/orders/fetch/delivered";
     try {
       final response = await http.get(
         url,
