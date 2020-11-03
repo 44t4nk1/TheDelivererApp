@@ -13,6 +13,11 @@ class User with ChangeNotifier {
     return _pendingOrdersList;
   }
 
+  List<dynamic> _deliveredOrdersList = [];
+  List<dynamic> get deliveredOrdersList {
+    return _deliveredOrdersList;
+  }
+
   Future<int> fetchDetails(String token) async {
     final url = "https://thedeliverer.herokuapp.com/api/user/details/fetch";
     try {
@@ -104,6 +109,27 @@ class User with ChangeNotifier {
       throw error;
     }
   }
-}
 
-// You do not have any delivered orders
+  Future<void> deliveredOrders(String token) async {
+    final url =
+        "https://thedeliverer.herokuapp.com/api/user/orders/fetch/pending";
+    try {
+      final response = await http.get(
+        url,
+        headers: {
+          "Authorization": token,
+        },
+      );
+      final resBody = json.decode(response.body);
+      if (resBody["message"] != "You do not have any delivered orders") {
+        _deliveredOrdersList = resBody["orders"];
+      } else {
+        _deliveredOrdersList = [
+          {"orders": 0}
+        ];
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+}
