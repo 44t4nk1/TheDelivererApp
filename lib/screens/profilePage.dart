@@ -321,11 +321,15 @@ class _ProfilePageState extends State<ProfilePage> {
                                   Navigator.push(
                                     context,
                                     BounceIn(
-                                        widget: PastOrder(
-                                      restaurantname: item["Restaurant"]
-                                          ["restaurantName"],
-                                      items: item["OrderItems"],
-                                    )),
+                                      widget: PastOrder(
+                                        restaurantname: item["Restaurant"]
+                                            ["restaurantName"],
+                                        items: item["OrderItems"],
+                                        userAddress: item["UserAddress"],
+                                        total: item["total"],
+                                        date: DateTime.parse(item["orderDate"]),
+                                      ),
+                                    ),
                                   );
                                 },
                                 child: OrderCard(
