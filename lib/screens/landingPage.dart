@@ -166,7 +166,7 @@ class _LandingPageState extends State<LandingPage> {
                               color: Theme.of(context).accentColor,
                               child: Container(
                                 decoration: BoxDecoration(
-                                  color: Color(0xffabc7ff),
+                                  color: Color(0xffffdbc7),
                                   borderRadius: BorderRadius.circular(30),
                                 ),
                                 width: double.maxFinite,
