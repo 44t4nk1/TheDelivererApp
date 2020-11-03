@@ -65,9 +65,11 @@ class _LoginPageState extends State<LoginPage> {
             body: Stack(
               children: [
                 Container(
-                  height: double.infinity,
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.only(top: size.height * 8 / 100),
+                  height: size.height * 20 / 100,
                   width: double.infinity,
-                  color: Theme.of(context).canvasColor,
+                  child: Image.asset('assets/images/logo.png'),
                 ),
                 SingleChildScrollView(
                   child: Form(
@@ -75,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: Column(
                       children: [
                         SizedBox(
-                          height: size.height * 25 / 100,
+                          height: size.height * 33 / 100,
                         ),
                         Container(
                           width: double.infinity,
@@ -91,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         SizedBox(
-                          height: size.height * 5 / 100,
+                          height: size.height * 2 / 100,
                         ),
                         Container(
                           margin: EdgeInsets.only(

@@ -47,6 +47,7 @@ dev_dependencies:
 flutter:
 
   assets:
+    - assets/images/logo.png
     - google_fonts/Montserrat-Medium.ttf
     - google_fonts/Montserrat-Bold.ttf
     - google_fonts/Montserrat-Black.ttf

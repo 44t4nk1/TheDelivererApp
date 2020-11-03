@@ -96,7 +96,7 @@ class _LandingPageState extends State<LandingPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: size.height * 15.5 / 100,
+                      height: size.height * 16.5 / 100,
                     ),
                     Container(
                       padding: EdgeInsets.only(left: size.width * 4 / 100),
@@ -234,7 +234,7 @@ class _LandingPageState extends State<LandingPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: size.height * 4.5 / 100,
+                      height: size.height * 5.5 / 100,
                     ),
                     Container(
                       padding: EdgeInsets.only(left: size.width * 4 / 100),
