@@ -3,7 +3,6 @@ import 'package:TheDeliverer/animations/BounceIn.dart';
 import 'package:TheDeliverer/main.dart';
 import 'package:TheDeliverer/providers/reg.dart';
 import 'package:TheDeliverer/providers/restaurants.dart';
-import 'package:TheDeliverer/screens/foodCard.dart';
 import 'package:TheDeliverer/providers/userDetails.dart';
 import 'package:TheDeliverer/screens/orderPage.dart';
 import 'package:TheDeliverer/screens/restaurantCard.dart';
