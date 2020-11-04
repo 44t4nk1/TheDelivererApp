@@ -36,7 +36,7 @@ class _EditProfileState extends State<EditProfile> {
         context,
         BounceOut(
           widget: HomePage(
-            currentIndex: 2,
+            currentIndex: 1,
           ),
         ),
       );

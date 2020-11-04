@@ -38,7 +38,7 @@ class RestaurantCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: size.width * 45 / 100,
+            // width: size.width * 45 / 100,
             margin: EdgeInsets.only(
                 top: size.height * 2 / 100, left: size.width * 6 / 100),
             child: Text(
@@ -51,7 +51,7 @@ class RestaurantCard extends StatelessWidget {
             ),
           ),
           Container(
-            width: size.width * 60 / 100,
+            // width: size.width * 60 / 100,
             margin: EdgeInsets.only(
                 top: size.height * 0.5 / 100,
                 left: size.width * 6 / 100,
@@ -69,10 +69,13 @@ class RestaurantCard extends StatelessWidget {
               style: GoogleFonts.montserrat(
                 color: Colors.white,
                 fontWeight: FontWeight.w400,
-                fontSize: 16,
+                fontSize: 14,
               ),
             ),
           ),
+          SizedBox(
+            height: size.height * 2 / 100,
+          )
         ],
       ),
     );

@@ -96,60 +96,18 @@ class _LandingPageState extends State<LandingPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: size.height * 16.5 / 100,
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(left: size.width * 4 / 100),
-                      child: Text(
-                        "Our best Offers!",
-                        style: GoogleFonts.montserrat(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w800,
-                          color: Theme.of(context).backgroundColor,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: size.height * 2 / 100,
-                    ),
-                    Container(
-                      height: size.height * 20 / 100,
-                      width: double.maxFinite,
-                      child: ListView.builder(
-                        shrinkWrap: false,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: specialOffers.length,
-                        padding: EdgeInsets.symmetric(
-                            horizontal: size.width * 4 / 100),
-                        itemBuilder: (context, index) {
-                          return Container(
-                            margin:
-                                EdgeInsets.only(right: size.width * 4 / 100),
-                            child: FoodCard(
-                              name: specialOffers[index]['name'],
-                              description: specialOffers[index]['description'],
-                              price: specialOffers[index]['price'],
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    SizedBox(
-                      height: size.height * 2 / 100,
+                      height: size.height * 14.5 / 100,
                     ),
                     Container(
                       padding: EdgeInsets.only(left: size.width * 4 / 100),
                       child: Text(
                         "Our favourite Restaurants!",
                         style: GoogleFonts.montserrat(
-                          fontSize: 24,
+                          fontSize: 20,
                           fontWeight: FontWeight.w800,
                           color: Theme.of(context).backgroundColor,
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: size.height * 2 / 100,
                     ),
                     extractedUserData["addressId"] == ''
                         ? Container(
@@ -157,6 +115,7 @@ class _LandingPageState extends State<LandingPage> {
                             width: double.maxFinite,
                             margin: EdgeInsets.symmetric(
                               horizontal: size.width * 4 / 100,
+                              vertical: size.height * 2 / 100,
                             ),
                             child: DottedBorder(
                               dashPattern: [20, 25],
@@ -184,28 +143,32 @@ class _LandingPageState extends State<LandingPage> {
                             ),
                           )
                         : Container(
-                            height: size.height * 20 / 100,
+                            height: size.height * 70 / 100,
                             width: double.maxFinite,
                             child: ListView.builder(
                               shrinkWrap: false,
-                              scrollDirection: Axis.horizontal,
+                              scrollDirection: Axis.vertical,
                               itemCount: restaurants.length,
                               itemBuilder: (context, index) {
-                                return Container(
-                                  child: FlatButton(
-                                    onPressed: () async {
-                                      Navigator.push(
-                                        context,
-                                        BounceIn(
-                                          widget: OrderPage(
-                                            restaurantId: restaurants[index]
-                                                ['restaurantId'],
-                                            name: restaurants[index]
-                                                ['restaurantName'],
-                                          ),
+                                return FlatButton(
+                                  onPressed: () async {
+                                    Navigator.push(
+                                      context,
+                                      BounceIn(
+                                        widget: OrderPage(
+                                          restaurantId: restaurants[index]
+                                              ['restaurantId'],
+                                          name: restaurants[index]
+                                              ['restaurantName'],
                                         ),
-                                      );
-                                    },
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    margin: EdgeInsets.only(
+                                      bottom: size.height * 2 / 100,
+                                    ),
+                                    width: double.infinity,
                                     child: RestaurantCard(
                                       name: restaurants[index]
                                           ['restaurantName'],

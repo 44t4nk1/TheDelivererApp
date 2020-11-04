@@ -1,6 +1,5 @@
 import 'package:TheDeliverer/screens/landingPage.dart';
 import 'package:TheDeliverer/screens/profilePage.dart';
-import 'package:TheDeliverer/screens/searchPage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +15,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final tabs = [
     LandingPage(),
-    SearchPage(),
     ProfilePage(),
   ];
   @override
@@ -43,12 +41,6 @@ class _HomePageState extends State<HomePage> {
               FontAwesomeIcons.home,
             ),
             label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.search,
-            ),
-            label: "Search",
           ),
           BottomNavigationBarItem(
             icon: FaIcon(
