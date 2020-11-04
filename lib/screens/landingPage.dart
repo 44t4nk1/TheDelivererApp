@@ -51,34 +51,6 @@ class _LandingPageState extends State<LandingPage> {
     });
   }
 
-  final List specialOffers = [
-    {
-      "name": "Tandoori Momos",
-      "description": "Veg Tandoori Momos made with special sauce.",
-      "price": "299",
-    },
-    {
-      "name": "Veg Lollipop",
-      "description": "Spicy mix vegetable fried.",
-      "price": "199",
-    },
-    {
-      "name": "Paneer Butter Masala",
-      "description": "Paneer with red rich butter gravy.",
-      "price": "399",
-    },
-    {
-      "name": "Monster",
-      "description": "Monster Energy Drink.",
-      "price": "90",
-    },
-    {
-      "name": "Garlic Naan",
-      "description": "Naan bread with butter and Garlic.",
-      "price": "199",
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -95,7 +67,7 @@ class _LandingPageState extends State<LandingPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: size.height * 14.5 / 100,
+                      height: size.height * 16.5 / 100,
                     ),
                     Container(
                       padding: EdgeInsets.only(left: size.width * 4 / 100),
@@ -142,7 +114,7 @@ class _LandingPageState extends State<LandingPage> {
                             ),
                           )
                         : Container(
-                            height: size.height * 70 / 100,
+                            height: size.height,
                             width: double.maxFinite,
                             child: ListView.builder(
                               shrinkWrap: false,
