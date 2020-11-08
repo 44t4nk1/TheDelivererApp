@@ -64,20 +64,20 @@ class _LoginPageState extends State<LoginPage> {
         : Scaffold(
             body: Stack(
               children: [
-                Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.only(top: size.height * 8 / 100),
-                  height: size.height * 20 / 100,
-                  width: double.infinity,
-                  child: Image.asset('assets/images/logo.png'),
-                ),
                 SingleChildScrollView(
                   child: Form(
                     key: _formKey,
                     child: Column(
                       children: [
+                        Container(
+                          alignment: Alignment.center,
+                          margin: EdgeInsets.only(top: size.height * 8 / 100),
+                          height: size.height * 20 / 100,
+                          width: double.infinity,
+                          child: Image.asset('assets/images/logo.png'),
+                        ),
                         SizedBox(
-                          height: size.height * 33 / 100,
+                          height: size.height * 3 / 100,
                         ),
                         Container(
                           width: double.infinity,

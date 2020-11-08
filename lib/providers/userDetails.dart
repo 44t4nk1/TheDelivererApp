@@ -98,6 +98,7 @@ class User with ChangeNotifier {
         },
       );
       final resBody = json.decode(response.body);
+      print(resBody);
       if (resBody["message"] != "You do not have any pending orders") {
         _pendingOrdersList = resBody["orders"];
       } else {

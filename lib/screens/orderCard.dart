@@ -55,7 +55,7 @@ class OrderCard extends StatelessWidget {
                   status,
                   style: GoogleFonts.montserrat(
                     color: status == "Pending"
-                        ? Color(0xfff55a42)
+                        ? Color(0xfff3ff0a)
                         : Color(0xff42f59e),
                     fontWeight: FontWeight.w700,
                     fontSize: 16,

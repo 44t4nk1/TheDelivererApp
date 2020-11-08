@@ -216,6 +216,9 @@ class _OrderPageState extends State<OrderPage> {
                           ),
                         ),
                       ),
+                      SizedBox(
+                        height: size.height * 20 / 100,
+                      )
                     ],
                   ),
                 ),
