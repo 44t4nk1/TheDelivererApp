@@ -114,7 +114,7 @@ class _LandingPageState extends State<LandingPage> {
                             ),
                           )
                         : Container(
-                            height: size.height,
+                            height: size.height * 72 / 100,
                             width: double.maxFinite,
                             child: ListView.builder(
                               shrinkWrap: false,
